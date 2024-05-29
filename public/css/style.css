@@ -85,17 +85,6 @@ body
 }
 
 
-div.citazione {
-    float: 						 left;
-    margin: 		 			 2em;
-    width:                       65%;
-    text-align:                  justify;
-}
-
-div.citazione > blockquote > p {
-    font-style: 			     italic;
-}
-
 h1
 {
     border-bottom: 2px solid #357ebd;
