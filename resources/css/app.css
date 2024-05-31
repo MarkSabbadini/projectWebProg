@@ -1,0 +1,281 @@
+/* 
+    Author     : MarkSabbadini
+*/
+
+div#menu {
+    width: 100%;
+    float: right;
+    background: #b3d9ff;
+    margin-bottom: 15px;
+}
+
+div#menu ul
+{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+div#menu li
+{
+    float:right;
+    padding: 10px;
+    border-right: 1px solid lightgrey;
+    color:black;
+}
+
+div#menu a
+{
+    display: block;
+    padding: 5px;
+    color: #000;
+    text-decoration: none;
+}
+
+div#menu a:hover
+{
+    background-color: darkgrey;
+}
+
+div#menu li ul
+{
+    display: none;
+    padding: 10px;
+}
+
+div#menu li:hover ul
+{
+    display: block;
+    position: absolute;
+    z-index:1;
+    width:160px;
+    border:1px solid black;
+    background: white;
+}
+
+div#menu li li { 
+    border:none; width:150px; 
+}
+
+li a.active {
+    background-color: lightgrey;
+}
+
+/*
+    CSS rules for background layout (the same for all pages)
+*/
+
+body
+{
+    font-family:sans-serif;
+    font-size: 90%;
+    max-width: 75%;
+    margin-left: 12.5%;
+}
+
+.logo-container {
+    float: left;
+    margin-top: 10px; 
+    margin-right: 10px;
+}
+
+.logo {
+    width: 75px; /* Modifica le dimensioni se necessario */
+    height: auto; /* Per mantenere l'aspetto proporzionato */
+}
+
+
+div.citazione {
+    float: 						 left;
+    margin: 		 			 2em;
+    width:                       65%;
+    text-align:                  justify;
+}
+
+div.citazione > blockquote > p {
+    font-style: 			     italic;
+}
+
+h1
+{
+    border-bottom: 2px solid #357ebd;
+}
+   
+/*
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: #666;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #ddd;
+}
+*/
+
+/*
+    CSS rules for tables (bokks and authors list pages)
+*/
+
+table
+{
+    border-collapse:collapse;
+    width:100%;
+    margin-bottom:1em;
+    background-color:transparent;
+}
+
+table td
+{
+    padding:1.5em;
+    vertical-align:top;
+    border-top:1px solid #dee2e6;
+}
+
+/*
+    CSS rules for buttons
+*/
+
+.bottone
+{
+    color: rgb(68,68,68);
+    text-decoration: none;
+    padding: .7em 1.5em;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 0.5em;
+    background: rgb(245,245,245) linear-gradient(#f4f4f4, #f1f1f1);
+}
+
+.bottone:hover
+{
+    color: rgb(51,51,51);
+    border: 1px solid rgb(204,204,204);
+    background: rgb(238,238,238) linear-gradient(rgb(238,238,238), rgb(224,224,224));
+    box-shadow: .2em .2em 0.2em rgba(0,0,0,.1);
+}
+
+.bottone-delete
+{
+    color: #fff;
+    background: rgb(212,75,56);
+}
+
+.bottone-delete:hover
+{
+    color: #fff;
+    background: rgb(232,95,76);
+    border: none;
+}
+
+.bottone-add
+{
+    color: rgb(245,245,245);
+    text-shadow: 0 -1px rgba(0,0,0,.1);
+    border: none;
+    background: #0c9c0d linear-gradient(#82d18d, #0c9c0d);
+    box-shadow: 0 -1px 1px #72de26 inset, 0 1px 1px #98ff98 inset, 0 0 0 1px #3caa3c, 0 2px 5px rgba(0,0,0,.3);
+    animation: pulsate 1.2s linear infinite;
+}
+
+.bottone-add:hover
+{
+    color: rgb(245,245,245);
+    text-shadow: 0 -1px rgba(0,0,0,.1);
+    border: none;
+    background: #0c9c0d linear-gradient(#82d18d, #0c9c0d);
+    box-shadow: inset #72de26 0 -1px 1px, inset 0 1px 1px #98ff98, #3caa3c 0 0 0 1px, rgba(0,0,0,.3) 0 2px 5px;
+    animation-play-state: paused;
+}
+
+@keyframes pulsate {
+  50% {color: #fff; text-shadow: 0 -1px rgba(0,0,0,.3), 0 0 5px #ffd, 0 0 8px #fff;}
+}
+
+p.insertItem
+{
+    text-align: right;
+}
+
+/*
+    CSS rules for forms (edit/create pages)
+*/
+
+.form-group
+{
+    margin-top:2em;
+    margin-bottom: 2em;
+}
+
+input.form-control
+{
+    display:block;
+    width:98%;
+    height:1.5em;
+    padding:.375em;
+    font-size:.9em;
+    color:#495057;
+    background-color:#fff;
+    border:1px solid rgba(0,0,0,.2);
+    border-radius:.5em;
+}
+
+select
+{
+    display:block;
+    width:99%;
+    height:2.5em;
+    padding:.375em;
+    font-size:.9em;
+    color:#495057;
+    background-color:#fff;
+    border:1px solid rgba(0,0,0,.2);
+    border-radius:.5em;
+}
+
+label
+{
+    display:block;
+    align-items:center;
+    margin-bottom:0.5em;
+}
+
+.submit
+{
+    font-size:90%;
+    color: rgb(68,68,68);
+    height: 3em;
+    text-decoration: none;
+    padding: .7em 2em;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 0.5em;
+    background: rgb(245,245,245) linear-gradient(#f4f4f4, #f1f1f1);
+}
+
+.submit:hover
+{
+    color: rgb(51,51,51);
+    border: 1px solid rgb(204,204,204);
+    background: rgb(238,238,238) linear-gradient(rgb(238,238,238), rgb(224,224,224));
+    box-shadow: .2em .2em 0.2em rgba(0,0,0,.1);
+}
+
+p.confirm
+{
+    margin-top: 2.5em;
+    margin-bottom: 2em;
+    text-align: center;
+}

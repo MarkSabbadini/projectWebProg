@@ -10,4 +10,15 @@ class frontController extends Controller
 
         return view('index');
     }
+
+    public function getStoria() {
+
+        return view('storia');
+    }
+
+    public function getDirettivo() {
+
+        return view('direttivo');
+    }
+
 }

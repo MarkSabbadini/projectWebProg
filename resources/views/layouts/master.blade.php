@@ -37,10 +37,12 @@
                             Unione Sportiva Corteno Golgi
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{ route('chiSiamo.index') }}">Chi siamo</a></li>
-                            <li><a class="dropdown-item" href="{{ route('calcio.index') }}">Calcio</a></li>
-                            <li><a class="dropdown-item" href="{{ route('eventi.index') }}">Eventi</a></li>
+                        <li><a class="dropdown-item">Chi Siamo</a></li>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{{ route('storia') }}">Storia</a></li>
+                                <li><a class="dropdown-item" href="{{ route('direttivo') }}">Direttivo</a></li>
 
+                            </ul>
                         </ul>
                     </li>
                 </ul>
