@@ -21,4 +21,9 @@ class frontController extends Controller
         return view('direttivo');
     }
 
+    public function getContatti() {
+
+        return view('contatti');
+    }
+
 }

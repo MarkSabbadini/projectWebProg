@@ -73,15 +73,12 @@ body
     margin-left: 12.5%;
 }
 
-.logo-container {
-    float: left;
-    margin-top: 10px; 
-    margin-right: 10px;
-}
-
 .logo {
-    width: 75px; /* Modifica le dimensioni se necessario */
+    width: 100px; /* Modifica le dimensioni se necessario */
     height: auto; /* Per mantenere l'aspetto proporzionato */
+    border-radius: 50%;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
 }
 
 
@@ -267,4 +264,32 @@ p.confirm
     margin-top: 2.5em;
     margin-bottom: 2em;
     text-align: center;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #85daeb;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.social-icon {
+    font-size: 24px; /* Modifica la dimensione dell'icona */
+    margin-right: 10px; /* Aggiungi spazio tra le icone, se necessario */
+    margin-left: 10px;
+}
+
+.titolo_navbar {
+    color: #333; /* Colore del testo */
+    font-size: 24px; /* Dimensione del testo */
+    font-weight: bold; /* Grassetto */
+    text-decoration: none;
+    margin-right: 30px;
+}
+
+.titolo_navbar:hover {
+    color:#447fb3;
 }

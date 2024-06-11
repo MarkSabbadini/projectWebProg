@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'U.S. Corteno Golgi')
+@section('title', 'U.S. CORTENO GOLGI')
 
 @section('active_home','active')
 
@@ -14,12 +14,6 @@
         <div class="citazione">
             <p>ESEMPIO DI PARTENZA PER SITO WEB UNIONE SPORTIVA CORTENO GOLGI
             </p>
-        </div>
-    </div>
-
-    <div class="col-lg-3 col-sm-12">
-        <div class="logo">
-            <img class="img-thumbnail img-responsive" src="{{ url('/') }}/img/logo.png">
         </div>
     </div>
 </div>
