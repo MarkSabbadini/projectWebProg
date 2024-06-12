@@ -14,7 +14,7 @@
         <p>
             Partecipa alla nostra straordinaria Caspolata 2025! Per iscriverti, clicca sul link qui sotto:
         </p>
-        <a href="{{ route('caspolata.iscrizione') }}" class="btn btn-primary">Vai alla form di iscrizione</a>
+        <a href="{{ route('caspolata.create') }}" class="btn btn-primary">Vai alla form di iscrizione</a>       
     </div>
 @endsection
 
