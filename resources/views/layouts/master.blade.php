@@ -8,6 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, 
               user-scalable=no">
 
+    
+    <link rel="icon" type="image/x-icon" href="{{ asset('img/logo.png') }}">
+
+
     <!-- Fogli di stile -->
     <link rel="stylesheet" href="{{ url('/') }}/css/bootstrap.min.css">
     <link href="{{ url('/') }}/css/style.css" rel="stylesheet">
@@ -64,8 +68,8 @@
                             Eventi Sportivi
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{ route('direttivo') }}">Raduno Scialpinistico</a></li>
-                            <li><a class="dropdown-item" href="{{ route('storia') }}">Caspolata</a></li>
+                            <li><a class="dropdown-item" href="{{ route('raduno.index') }}">Raduno Scialpinistico</a></li>
+                            <li><a class="dropdown-item" href="{{ route('caspolata.index') }}">Caspolata</a></li>
                         </ul>
                     </li>
                     <li class="nav-item btn">

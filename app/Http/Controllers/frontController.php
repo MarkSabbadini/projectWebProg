@@ -26,4 +26,5 @@ class frontController extends Controller
         return view('contatti');
     }
 
+
 }
