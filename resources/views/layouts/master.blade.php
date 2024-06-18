@@ -57,7 +57,7 @@
                             Calcio
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{ route('direttivo') }}">Le nostre squadre</a></li>
+                            <li><a class="dropdown-item" href="{{ route('squadre') }}">Le nostre squadre</a></li>
                             <li><a class="dropdown-item" href="{{ route('storia') }}">Risultati e classifiche</a></li>
                             <li><a class="dropdown-item" href="{{ route('storia') }}">Torneo estivo</a></li>
                         </ul>

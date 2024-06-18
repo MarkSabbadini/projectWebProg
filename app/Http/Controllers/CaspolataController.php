@@ -11,14 +11,13 @@ class CaspolataController extends Controller
         return view('eventi.caspolata.caspolata');
     }
 
-    public function edit()
+    public function create()
     {
         return view('eventi.caspolata.editCaspolata');
     }
 
-    public function create()
+    public function getIscrizioneCaspolata()
     {
         return view('eventi.caspolata.iscrizioneCaspolata');
     }
-
 }

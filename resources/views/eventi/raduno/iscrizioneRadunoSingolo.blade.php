@@ -1,11 +1,11 @@
 @extends('layouts.master')
 
-@section('title', 'Modulo iscrizione Caspolata 2025')
+@section('title', 'Modulo iscrizione singolo Raduno 2025')
 
 @section('active_home', 'active')
 
 @section('breadcrumb')
-<li class="breadcrumb-item active" aria-current="page">Iscrizione caspolata 2025</li>
+<li class="breadcrumb-item active" aria-current="page">Iscrizione raduno scialpinistico valdicorteno 2025</li>
 @endsection
 
 @section('body')
@@ -20,8 +20,8 @@
         <input type="text" class="form-control" id="validationDefault02" required>
     </div>
     <div class="col-md-4">
+        <label for="exampleFormControlInput1" class="form-label">Indirizzo email</label>
         <div class="input-group">
-            <label for="exampleFormControlInput1" class="form-label">Email address</label>
             <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" required>
         </div>
     </div>

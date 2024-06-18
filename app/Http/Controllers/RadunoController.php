@@ -10,5 +10,20 @@ class RadunoController extends Controller
     {
         return view('eventi.raduno.raduno');
     }
+
+    public function create()
+    {
+        return view('eventi.caspolata.editRaduno');
+    }
+
+    public function getIscrizioneRadunoSingolo()
+    {
+        return view('eventi.raduno.iscrizioneRadunoSingolo');
+    }
+
+    public function getIscrizioneRadunoGruppo()
+    {
+        return view('eventi.raduno.iscrizioneRadunoGruppo');
+    }
 }
 

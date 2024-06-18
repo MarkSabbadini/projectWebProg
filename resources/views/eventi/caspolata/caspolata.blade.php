@@ -10,11 +10,11 @@
 
 @section('body')
     <div class="container mt-5">
-        <h2>Iscrizione "CASPOLANDO NELLE VALLI DI SANT'ANTONIO" 2025</h2>
+        <h2>"CASPOLANDO NELLE VALLI DI SANT'ANTONIO" 2025</h2>
         <p>
             Partecipa alla nostra straordinaria Caspolata 2025! Per iscriverti, clicca sul link qui sotto:
         </p>
-        <a href="{{ route('caspolata.create') }}" class="btn btn-primary">Vai alla form di iscrizione</a>       
+        <a href="{{ route('iscrizioneCaspolata') }}" class="btn btn-primary">Modulo iscrizione</a>       
     </div>
 @endsection
 
