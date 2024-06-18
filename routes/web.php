@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CalcioController;
 use App\Http\Controllers\CaspolataController;
 use App\Http\Controllers\RadunoController;
 use Illuminate\Support\Facades\Route;
@@ -14,17 +15,24 @@ Route::get('/direttivo', [FrontController::class, 'getDirettivo'])->name('dirett
 
 Route::get('/contatti', [FrontController::class, 'getContatti'])->name('contatti');
 
-Route::get('/squadre', [FrontController::class, 'getSquadre'])->name('squadre');
-
-
+////////////////
 Route::resource('caspolata', CaspolataController::class);
 
 Route::get('/eventi/caspolata/iscrizioneCaspolata', [CaspolataController::class, 'getIscrizioneCaspolata'])->name('iscrizioneCaspolata');
 
+////////////////
 Route::resource('raduno', RadunoController::class);
 
 Route::get('/eventi/raduno/iscrizioneRadunoSingolo', [RadunoController::class, 'getIscrizioneRadunoSingolo'])->name('iscrizioneRadunoSingolo');
 Route::get('/eventi/raduno/iscrizioneRadunoGruppo', [RadunoController::class, 'getIscrizioneRadunoGruppo'])->name('iscrizioneRadunoGruppo');
+
+////////////////
+Route::resource('calcio', CalcioController::class);
+
+
+
+
+
 
 
 

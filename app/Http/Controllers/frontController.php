@@ -25,13 +25,4 @@ class frontController extends Controller
 
         return view('contatti');
     }
-
-    public function getSquadre() {
-
-        return view('calcio.squadre');
-    }
-
-
-
-
 }
