@@ -93,7 +93,7 @@
         </header>
     </div>
 
-    <div class="container-fluid">
+    <div class="container-fluid myContainer">
         @yield('body')
     </div>
 

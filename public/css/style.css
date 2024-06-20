@@ -293,3 +293,8 @@ footer {
 .titolo_navbar:hover {
     color:#447fb3;
 }
+
+.myContainer {
+    margin-top: 50px;
+    margin-bottom: 90px; 
+}

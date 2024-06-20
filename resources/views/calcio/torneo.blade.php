@@ -24,6 +24,6 @@
     </div>
 
     <div class="col-md-4">
-            <img src="{{ asset('img/torneo.jpg') }}" class="img-fluid" alt="Torneo Estivo 2025">
+            <img src="{{ asset('img/Calcio/torneo.jpg') }}" class="img-fluid" alt="Torneo Estivo 2025">
         </div>
 @endsection
