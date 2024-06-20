@@ -15,6 +15,10 @@
         <p>
             Torneo estivo 2024
             Organizzato dal Centro sportivo san martino in collaborazione con l'U.S. Corteno Golgi
+            <a href="https://www.instagram.com/u.s._cortenogolgi/" target="_blank" class="social-icon"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.facebook.com/CentroSportivoSanMartinoCortenoGolgi/?locale=it_IT" target="_blank" class="social-icon"><i class="bi bi-facebook"></i></a>
+
+
         </p>
 
     </div>

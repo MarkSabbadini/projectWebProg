@@ -10,4 +10,9 @@ class CalcioController extends Controller
         
         return view('calcio.squadre');
     }
+
+    public function torneo() {
+
+        return view('calcio.torneo');
+    }
 }

@@ -59,7 +59,7 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ route('calcio.index') }}">Le nostre squadre</a></li>
                             <li><a class="dropdown-item" href="{{ route('calcio.index') }}">Risultati e classifiche</a></li>
-                            <li><a class="dropdown-item" href="{{ route('calcio.index') }}">Torneo estivo</a></li>
+                            <li><a class="dropdown-item" href="{{ route('torneo') }}">Torneo estivo</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown btn">
