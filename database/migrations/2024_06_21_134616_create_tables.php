@@ -31,8 +31,9 @@ return new class extends Migration
 
         Schema::create('indirizzo', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('indirizzo_residenza');
+            $table->unsignedBigInteger('via_civico');
             $table->string('comune');
+            $table->string('provincia');
             $table->timestamps();
         });
 

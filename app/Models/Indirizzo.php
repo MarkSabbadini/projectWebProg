@@ -13,12 +13,12 @@ class Indirizzo extends Model
     // use SoftDeletes;
     // public $timestamps = false;
 
-    protected $fillable = ['indirizzo', 'comune'];
+    protected $fillable = ['via_civico', 'comune', 'provincia'];
 
     // Method of Author model
-    public function iscritti()
+    public function iscritto()
     {
-        // the property $author->books returns an array of Books
-        return $this->hasMany(Iscritto::class,'iscritto_id','id');
+        // the property $address->author returns an object of type Author
+        return $this->belongsTo(Iscritto::class,'iscritto_id','id');
     }
 }

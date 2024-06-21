@@ -14,5 +14,11 @@ class Iscrizione extends Model
     // public $timestamps = false;
 
     protected $fillable = ['id_iscritto', 'tipo_iscrizione', 'tipo_evento'];
+
+    public function iscritto()
+    {
+        // the property $book->author returns an object of type Author
+        return $this->belongsTo(Iscritto::class,'iscritto_id','id');
+    }
 }
 
