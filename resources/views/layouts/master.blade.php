@@ -29,7 +29,7 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="titolo_navbar" href="#">U.S. CORTENO GOLGI</a>
+            <a class="titolo_navbar" href="{{ route('home') }}">U.S. CORTENO GOLGI</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -37,10 +37,6 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item btn">
-                        <a class="nav-link @yield('active_home')" aria-current="page"
-                            href="{{ route('home') }}">Home</a>
-                    </li>
                     <li class="nav-item dropdown btn">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
@@ -58,7 +54,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ route('calcio.index') }}">Le nostre squadre</a></li>
-                            <li><a class="dropdown-item" href="{{ route('calcio.index') }}">Risultati e classifiche</a></li>
+                            <li><a class="dropdown-item" href="{{ route('risultati') }}">Risultati e classifiche</a></li>
                             <li><a class="dropdown-item" href="{{ route('torneo') }}">Torneo estivo</a></li>
                         </ul>
                     </li>

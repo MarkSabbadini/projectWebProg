@@ -22,8 +22,13 @@
     <div class="col-md-4">
         <label for="exampleFormControlInput1" class="form-label">Indirizzo email</label>
         <div class="input-group">
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" required>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"
+                required>
         </div>
+    </div>
+    <div class="col-md-6">
+        <label for="validationDefault03" class="form-label">Cellulare</label>
+        <input type="tel" class="form-control" id="validationDefault03" required>
     </div>
     <div class="col-md-6">
         <label for="validationDefault03" class="form-label">Comune di residenza</label>
@@ -37,16 +42,21 @@
         <label for="validationDefault04" class="form-label">State</label>
         <select class="form-select" id="validationDefault04" required>
             <option selected disabled value="">Seleziona tipologia di iscrizione</option>
-            <option>Normale</option>
-            <option>Con noleggio</option>
-
+            <option>Iscrizione senza pranzo € 25</option>
+            <option>Iscrizione con pranzo € 35</option>
         </select>
+    </div>
+    <div class="col-md-6">
+        <label for="formFileMultiple" class="form-label">Carica qui la ricevuta del tuo pagamento</label>
+        <input class="form-control" type="file" id="formFileMultiple" multiple>
     </div>
     <div class="col-12">
         <div class="form-check">
             <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
             <label class="form-check-label" for="invalidCheck2">
-                Ho letto e accetto il regolamento qui riportato
+                Iscrivendomi dichiaro di aver letto ed accettato il regolamento <a
+                    href="{{ url('/documents/regolamento.pdf') }}" target="_blank">qui
+                    riportato</a>
             </label>
         </div>
     </div>

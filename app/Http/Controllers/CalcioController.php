@@ -15,4 +15,9 @@ class CalcioController extends Controller
 
         return view('calcio.torneo');
     }
+
+    public function risultati() {
+
+        return view('calcio.risultati');
+    }
 }

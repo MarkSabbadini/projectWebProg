@@ -29,6 +29,7 @@ Route::get('/eventi/raduno/iscrizioneRadunoGruppo', [RadunoController::class, 'g
 ////////////////
 Route::resource('calcio', CalcioController::class)->except('show');
 
+Route::get('/calcio/risultati', [CalcioController::class, 'risultati'])->name('risultati');
 Route::get('/calcio/torneo', [CalcioController::class, 'torneo'])->name('torneo');
 
 

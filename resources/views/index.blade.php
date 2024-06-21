@@ -9,6 +9,11 @@
 @endsection
 
 @section('body')
+<div class="row mt-4">
+    <div class="col-12">
+        <img src="{{ asset('img/sfondo.PNG') }}" class="img-fluid" alt="Header Image">
+    </div>
+</div>
 <div class="row">
     <div class="col-lg-9 col-sm-12">
         <div class="citazione">
@@ -17,4 +22,5 @@
         </div>
     </div>
 </div>
+
 @endsection
