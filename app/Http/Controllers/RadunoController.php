@@ -25,5 +25,7 @@ class RadunoController extends Controller
     {
         return view('eventi.raduno.iscrizioneRadunoGruppo');
     }
+
+    
 }
 

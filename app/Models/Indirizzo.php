@@ -15,10 +15,10 @@ class Indirizzo extends Model
 
     protected $fillable = ['via_civico', 'comune', 'provincia'];
 
-    // Method of Author model
+    // Possiamo avere 2 iscritti con stesso indirizzo!
     public function iscritto()
     {
         // the property $address->author returns an object of type Author
-        return $this->belongsTo(Iscritto::class,'iscritto_id','id');
+        return $this->belongsToMany(Iscritto::class,'iscritto_id','id');
     }
 }

@@ -9,15 +9,13 @@
 @endsection
 
 @section('body')
-<div class="row mt-4">
-    <div class="col-12">
-        <img src="{{ asset('img/sfondo.PNG') }}" class="img-fluid" alt="Header Image">
-    </div>
-</div>
 <div class="row">
     <div class="col-lg-9 col-sm-12">
         <div class="citazione">
-            <p>ESEMPIO DI PARTENZA PER SITO WEB UNIONE SPORTIVA CORTENO GOLGI
+            <p>L’Unione Sportiva Corteno Golgi A.S.D. è un associazione dilettantistica senza scopo di lucro, presente sul territorio 
+                da più di 50 anni con lo scopo principale di promuovere le attività sportive tra la popolazione, principalmente 
+                tra bambini e ragazzi, per favorire l’esperienza dello sport come mezzo di crescita personale e sociale, incentivando 
+                la conoscenza del territorio.
             </p>
         </div>
     </div>

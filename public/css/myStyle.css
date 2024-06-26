@@ -67,10 +67,11 @@ li a.active {
 
 body
 {
-    font-family:sans-serif;
+    font-family: sans-serif;
     font-size: 90%;
-    max-width: 75%;
-    margin-left: 12.5%;
+    margin: 10 auto; /* Centra il contenuto della pagina rispetto al bordo esterno del corpo */
+    padding: 35px; /* Aggiunge spazio intorno al contenuto all'interno del bordo */
+    box-sizing: border-box;
 }
 
 .logo {
@@ -84,7 +85,7 @@ body
 
 h1
 {
-    border-bottom: 2px solid #357ebd;
+    border-bottom: none;
 }
    
 /*
@@ -285,21 +286,20 @@ footer {
 /* Stile per il link nella navbar */
 .titolo_navbar {
     font-family: 'Arial', sans-serif; /* Cambia il font come desiderato */
-    font-size: 24px; /* Dimensione del font */
+    font-size: 26px; /* Dimensione del font */
     font-weight: bold; /* Grassetto */
     color: #000000; /* Colore del testo */
     text-decoration: none; /* Rimuove la sottolineatura */
     padding: 10px 20px; /* Spaziatura interna */
-    background-color: #ffffff; /* Colore di sfondo */
+    background-color: 39accf6c; /* Colore di sfondo */
     border-radius: 5px; /* Angoli arrotondati */
     transition: background-color 0.3s, color 0.3s; /* Transizione per il passaggio del mouse */
 }
 
 /* Stile per il link al passaggio del mouse */
 .titolo_navbar:hover {
-    background-color: #002060; /* Cambia il colore di sfondo al passaggio del mouse */
-    color: #9bcbe0; /* Cambia il colore del testo al passaggio del mouse */
-    text-decoration: underline; /* Sottolineatura al passaggio del mouse */
+    background-color: #48b1d16e; /* Cambia il colore di sfondo al passaggio del mouse */
+    color: #373636c3; /* Cambia il colore del testo al passaggio del mouse */
 }
 
 .myContainer {
@@ -326,4 +326,32 @@ ul.rosa .nome {
     margin-left: 8px; /* Aggiunge spazio tra il numero e il nome */
 }
 
+.logo-small {
+    width: 90px;
+    height: auto;
+}
 
+.scritta-img {
+    
+        background-color: rgba(13, 30, 51, 0.6); /* Sfondo nero con 60% di opacità */
+        color: white; /* Colore del testo */
+        border-radius: 5px; /* Bordo arrotondato, opzionale */
+        margin-left: 450px;
+        margin-right: 450px;
+   
+}
+
+.navbar-blue {
+    background-color: #bbecf1c4; /* Colore di sfondo navbar */
+    --bs-navbar-color: rgba(255, 255, 255, 0.55);
+    --bs-navbar-hover-color: rgba(255, 255, 255, 0.75);
+    --bs-navbar-disabled-color: rgba(255, 255, 255, 0.25);
+    --bs-navbar-active-color: #fff;
+    --bs-navbar-brand-color: #fff;
+    --bs-navbar-brand-hover-color: #fff;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+
+  }
+
+  

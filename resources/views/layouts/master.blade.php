@@ -14,7 +14,8 @@
 
     <!-- Fogli di stile -->
     <link rel="stylesheet" href="{{ url('/') }}/css/bootstrap.min.css">
-    <link href="{{ url('/') }}/css/style.css" rel="stylesheet">
+    <link href="{{ url('/') }}/css/myStyle.css" rel="stylesheet">
+    <link href="{{ url('/') }}/css/themeStyle.css" rel="stylesheet"> 
 
     <!-- jQuery e plugin JavaScript  -->
     <script src="http://code.jquery.com/jquery.js"></script>
@@ -27,8 +28,8 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-blue">
+        <div class="container">
             <a class="titolo_navbar" href="{{ route('home') }}">U.S. CORTENO GOLGI</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -72,14 +73,15 @@
                         <a class="nav-link" aria-current="page" href="{{ route('contatti') }}">Contatti</a>
                     </li>
                 </ul>
-
-
-                <div class="logo">
-                    <img class="img-thumbnail img-responsive" src="{{ url('/') }}/img/logo.png">
-                </div>
             </div>
         </div>
     </nav>
+    <header class="py-1 bg-image-full" style="background-image: url('{{ asset('img/headerTras.png') }}')">
+            <div class="text-center my-5">
+                <img class="img-fluid rounded-circle mb-4 logo-small" src="{{ asset('img/logo.png') }}" alt="..." />
+                <h1 class="text-white fs-3 fw-bolder scritta-img">UNIONE SPORTIVA CORTENO GOLGI</h1>
+            </div>
+    </header>
 
     <div class="container-fluid">
         <header class="header-sezione">
