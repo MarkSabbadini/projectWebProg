@@ -16,6 +16,9 @@
                 da più di 50 anni con lo scopo principale di promuovere le attività sportive tra la popolazione, principalmente 
                 tra bambini e ragazzi, per favorire l’esperienza dello sport come mezzo di crescita personale e sociale, incentivando 
                 la conoscenza del territorio.
+
+                COSA AGGIUNGERE?
+                
             </p>
         </div>
     </div>
