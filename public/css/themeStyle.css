@@ -7764,6 +7764,7 @@ textarea.form-control-lg {
 .py-1 {
   padding-top: 0.1rem !important;
   padding-bottom: 0.1rem !important;
+  margin-bottom: 15px;
 }
 
 .py-2 {

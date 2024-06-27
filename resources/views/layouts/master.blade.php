@@ -37,7 +37,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item dropdown btn">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
@@ -76,12 +76,12 @@
             </div>
         </div>
     </nav>
-    <header class="py-1 bg-image-full" style="background-image: url('{{ asset('img/headerTras.png') }}')">
+    <header class="py-1 bg-image-full" style="background-image: url('{{ asset('img/sfondo1.jpg') }}')">      <!-- NB py-1 classe del contenitore dell'img-->
             <div class="text-center my-5">
                 <img class="img-fluid rounded-circle mb-4 logo-small" src="{{ asset('img/logo.png') }}" alt="..." />
                 <h1 class="text-white fs-3 fw-bolder scritta-img">UNIONE SPORTIVA CORTENO GOLGI</h1>
             </div>
-    </header>
+    </header> 
 
     <div class="container-fluid">
         <header class="header-sezione">

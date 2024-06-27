@@ -1,5 +1,5 @@
 /* 
-    Author     : MarkSabbadini
+    Author:MarkSabbadini
 */
 
 div#menu {
@@ -197,9 +197,6 @@ p.insertItem
     text-align: right;
 }
 
-/*
-    CSS rules for forms (edit/create pages)
-*/
 
 .form-group
 {
@@ -290,8 +287,9 @@ footer {
     font-weight: bold; /* Grassetto */
     color: #000000; /* Colore del testo */
     text-decoration: none; /* Rimuove la sottolineatura */
-    padding: 10px 20px; /* Spaziatura interna */
+    padding: 5px 20px; /* Spaziatura interna */
     background-color: 39accf6c; /* Colore di sfondo */
+    border: 2px solid #000;
     border-radius: 5px; /* Angoli arrotondati */
     transition: background-color 0.3s, color 0.3s; /* Transizione per il passaggio del mouse */
 }
@@ -333,16 +331,16 @@ ul.rosa .nome {
 
 .scritta-img {
     
-        background-color: rgba(13, 30, 51, 0.6); /* Sfondo nero con 60% di opacità */
+        background-color: rgba(29, 70, 121, 0.6); /* Sfondo nero con 60% di opacità */
         color: white; /* Colore del testo */
         border-radius: 5px; /* Bordo arrotondato, opzionale */
-        margin-left: 450px;
-        margin-right: 450px;
+        margin-left: 470px;
+        margin-right: 470px;
    
 }
 
 .navbar-blue {
-    background-color: #bbecf1c4; /* Colore di sfondo navbar */
+    background-color: #9ee6feb8; /* Colore di sfondo navbar */
     --bs-navbar-color: rgba(255, 255, 255, 0.55);
     --bs-navbar-hover-color: rgba(255, 255, 255, 0.75);
     --bs-navbar-disabled-color: rgba(255, 255, 255, 0.25);
@@ -353,5 +351,25 @@ ul.rosa .nome {
     border-top-left-radius: 15px;
 
   }
+
+  /* #headerCarousel {                                  CSS PER EVENTUALE CAROUSEL IMMAGINI IN HOME
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    margin-bottom: 20px;
+  }
+  
+  #headerCarousel .carousel-item img {
+    max-height: 600px; Altezza massima dell'immagine 
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  #headerCarousel .carousel-caption {
+    background: rgba(0, 0, 0, 0.5); Sfondo semitrasparente per il testo 
+    padding: 20px;
+    border-radius: 10px;
+  } */
+  
+
 
   
