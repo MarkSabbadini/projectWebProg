@@ -5,23 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Iscritto extends Model
+class Utente extends Model
 {
     use HasFactory;
     protected $table = 'iscritto';
  
-    protected $fillable = ['nome', 'cognome','cellulare','email'];
+    protected $fillable = ['nome', 'cognome','cellulare','email','via','civico','comune','provincia','nazione'];
 
     // Metodi per andare a gestire le "associazioni"
     public function iscrizioni()
     {
         
-        return $this->hasMany(Iscrizione::class,'iscritto_id','id');
+        return $this->belongsToMany(Iscrizione::class,'id_utente','id');
     }
 
-    public function address()
-    {
-        
-        return $this->hasOne(Indirizzo::class,'iscritto_id','id');
-    }
 }

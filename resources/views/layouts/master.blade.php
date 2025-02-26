@@ -76,7 +76,7 @@
             </div>
         </div>
     </nav>
-    <header class="py-1 bg-image-full" style="background-image: url('{{ asset('img/sfondo1.jpg') }}')">      <!-- NB py-1 classe del contenitore dell'img-->
+    <header class="py-1 bg-image-full" style="background-image: url('{{ asset('img/sfondi/sfondo1.jpg') }}')">      <!-- NB py-1 classe del contenitore dell'img-->
             <div class="text-center my-5">
                 <img class="img-fluid rounded-circle mb-4 logo-small" src="{{ asset('img/logo.png') }}" alt="..." />
                 <h1 class="text-white fs-3 fw-bolder scritta-img">UNIONE SPORTIVA CORTENO GOLGI</h1>

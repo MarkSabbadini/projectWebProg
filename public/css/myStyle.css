@@ -327,11 +327,14 @@ ul.rosa .nome {
 .logo-small {
     width: 90px;
     height: auto;
+    /* border: 3px solid #fff;     VALUTA SE METTERLO O NO
+    padding: 4px;   
+    background-color: #0c9c0d; */
 }
 
 .scritta-img {
     
-        background-color: rgba(29, 70, 121, 0.6); /* Sfondo nero con 60% di opacità */
+        background-color: rgba(50, 76, 107, 0.6); /* Sfondo nero con 60% di opacità */
         color: white; /* Colore del testo */
         border-radius: 5px; /* Bordo arrotondato, opzionale */
         margin-left: 470px;

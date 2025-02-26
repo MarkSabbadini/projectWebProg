@@ -35,6 +35,10 @@
         <input type="text" class="form-control" id="validationDefault03" required>
     </div>
     <div class="col-md-6">
+        <label for="validationDefault03" class="form-label">Provincia</label>
+        <input type="text" class="form-control" id="validationDefault03" required>
+    </div>
+    <div class="col-md-6">
         <label for="validationDefault03" class="form-label">Indirizzo</label>
         <input type="text" class="form-control" id="validationDefault03" required>
     </div>
