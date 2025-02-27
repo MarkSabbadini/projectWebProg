@@ -289,7 +289,7 @@ footer {
     text-decoration: none; /* Rimuove la sottolineatura */
     padding: 5px 20px; /* Spaziatura interna */
     background-color: 39accf6c; /* Colore di sfondo */
-    border: 2px solid #000;
+    border: 2px solid #3d8ebd;
     border-radius: 5px; /* Angoli arrotondati */
     transition: background-color 0.3s, color 0.3s; /* Transizione per il passaggio del mouse */
 }
@@ -334,7 +334,7 @@ ul.rosa .nome {
 
 .scritta-img {
     
-        background-color: rgba(50, 76, 107, 0.6); /* Sfondo nero con 60% di opacità */
+        background-color: rgba(50, 76, 107, 0.65); /* Sfondo nero con 60% di opacità */
         color: white; /* Colore del testo */
         border-radius: 5px; /* Bordo arrotondato, opzionale */
         margin-left: 470px;

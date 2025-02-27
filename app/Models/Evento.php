@@ -13,5 +13,11 @@ class Evento extends Model
 
     protected $fillable = ['nome', 'edizione','descrizione','locandina'];
 
+    public function iscritti()
+    {
+        
+        return $this->belongsToMany(Utente::class,'iscrizione','id_evento','id_utente');
+    }
+
 
 }

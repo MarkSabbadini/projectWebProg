@@ -16,7 +16,7 @@ class Utente extends Model
     public function iscrizioni()
     {
         
-        return $this->belongsToMany(Iscrizione::class,'id_utente','id');
+        return $this->belongsToMany(Evento::class,'iscrizione','id_utente','id_evento');
     }
 
 }
