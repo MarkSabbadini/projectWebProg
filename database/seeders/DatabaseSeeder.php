@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
     private function populateDB() {
 
         $utenti = Utente::factory()->count(10)->create();
+       
         // Creiamo 5 eventi 
         Evento::factory()->count(5)->create()->each(function ($evento) use ($utenti) {
             
