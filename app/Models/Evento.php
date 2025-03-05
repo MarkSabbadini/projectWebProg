@@ -18,6 +18,4 @@ class Evento extends Model
         
         return $this->belongsToMany(Utente::class,'iscrizione','id_evento','id_utente');
     }
-
-
 }
