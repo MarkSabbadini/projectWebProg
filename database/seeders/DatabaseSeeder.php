@@ -27,12 +27,15 @@ class DatabaseSeeder extends Seeder
         $utenti = Utente::factory()->count(10)->create();
        
         // Creiamo 5 eventi 
-        Evento::factory()->count(5)->create()->each(function ($evento) use ($utenti) {
+        Evento::factory()->count(5)->create();
+        
+        
+        //->each(function ($evento) use ($utenti) {
             
             // Prendo insieme casuale di utenti 
-            $randomUtenti = $utenti->random(rand(1,4));
-            $evento->iscritti()->attach($randomUtenti);
+          //  $randomUtenti = $utenti->random(rand(1,4));
+            //$evento->iscritti()->attach($randomUtenti);
 
-        });
+        //});
     }
 }

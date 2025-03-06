@@ -3,24 +3,26 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-
 use App\Models\Evento;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Evento>
  */
 class EventoFactory extends Factory
-{
-
-     protected $model = Evento::class;
-
+{   protected $model = Evento::class;
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
     public function definition(): array
     {
+        
         return [
-            'nome' => $this->faker->firstName(),
-            'cognome' => $this->faker->lastName(), 
+            'nome' => $this->faker->firstName(), 
             'descrizione' => $this->faker->sentence(1,5),
-            'locandina' =>  $this->faker->url()             // check!
+            'edizione' => $this->faker->year(),
+            'path_locandina' =>  $this->faker->url()  
         ];
     }
 }

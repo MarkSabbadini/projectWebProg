@@ -11,17 +11,17 @@ use App\Models\Utente;
 class UtenteFactory extends Factory
 {
    
-    protected $model = Evento::class;
+    protected $model = Utente::class;
 
     public function definition(): array
     {
         return [
             'nome' => $this->faker->firstName(),
             'cognome' => $this->faker->lastName(),
-            'cellulare' => $this->faker->phoneNumber(),
+            'cellulare' => $this->faker->randomDigitNotNull(),
             'email' => $this->faker->safeEmail(),
             'via' => $this->faker->streetName(),
-            'civico' => $this->faker->streetAddress(),
+            'civico' => $this->faker->randomDigitNotNull(),
             'comune' => $this->faker->city(),
             'provincia' => $this->faker->state,
             'nazione' => $this->faker->countryCode()

@@ -28,6 +28,7 @@ return new class extends Migration
        Schema::create('evento', function (Blueprint $table) {
         $table -> id();
         $table -> string('nome');
+        $table -> string('descrizione');
         $table -> integer('edizione');
         $table -> string('path_locandina');
         $table -> timestamps();
