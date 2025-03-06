@@ -67,6 +67,8 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ route('raduno.index') }}">Raduno Scialpinistico</a></li>
                             <li><a class="dropdown-item" href="{{ route('caspolata.index') }}">Caspolata</a></li>
+                            <li><a class="dropdown-item" href="{{ route(name: 'creaEvento') }}">Inserisci un nuovo evento</a></li>
+
                         </ul>
                     </li>
                     <li class="nav-item btn">

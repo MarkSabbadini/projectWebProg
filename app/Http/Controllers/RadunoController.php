@@ -13,7 +13,7 @@ class RadunoController extends Controller
 
     public function create()
     {
-        return view('eventi.caspolata.editRaduno');
+        return view('eventi.creaEvento');
     }
 
     public function getIscrizioneRadunoSingolo()

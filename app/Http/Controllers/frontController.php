@@ -25,4 +25,13 @@ class frontController extends Controller
 
         return view('contatti');
     }
+
+    public function getCreaEvento() {
+
+        return view('eventi.creaEvento');
+    }
+
+
+
+
 }
