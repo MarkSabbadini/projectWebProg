@@ -31,7 +31,8 @@
         <div class="row g-2 mb-3">
             <div class="col-12">
                 <label for="inputDescrizione" class="form-label">Inserisci una breve descrizione dell'evento</label>
-                <input id="inputDescrizione" name="descrizione" class="form-control" type="text" placeholder="Descrizione...">
+                <input id="inputDescrizione" name="descrizione" class="form-control" type="text"
+                    placeholder="Descrizione...">
             </div>
         </div>
 
@@ -40,7 +41,8 @@
                 <legend class="col-form-label col-sm-2 pt-0">Tipologia evento</legend>
                 <div class="col-sm-10">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="raduno" checked>
+                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="raduno"
+                            checked>
                         <label class="form-check-label" for="gridRadios1">
                             Raduno scialpinistico
                         </label>
@@ -54,6 +56,11 @@
                 </div>
             </div>
         </fieldset>
+
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Carica la locandina dell'evento</label>
+            <input class="form-control" type="file" id="formFile">
+        </div>
 
         <div class="form-group row mt-3">
             <div class="col-sm-10">
@@ -77,4 +84,3 @@
         }
     </script>
 @endsection
-
