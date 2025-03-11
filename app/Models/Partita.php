@@ -12,7 +12,7 @@ class Partita extends Model
 
     protected $table = 'partita';
 
-    protected $fillable = ['id_squadra_home','id_squadra_away','gol_casa','gol_away','data'];
+    protected $fillable = ['id_squadra_home','id_squadra_away','goal_home','goal_away','data'];
 
     public function squadraCasa()
     {
@@ -33,7 +33,7 @@ class Partita extends Model
      * 'id_partita' è la colonna FK nella tabella 'goal',
      * 'id' è la PK di questa tabella 'partita'.
      */
-    
+
     public function goals()
     {
         return $this->hasMany(Goal::class, 'id_partita', 'id');
