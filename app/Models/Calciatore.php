@@ -10,7 +10,7 @@ class Calciatore extends Model
     /** @use HasFactory<\Database\Factories\CalciatoreFactory> */
     use HasFactory;
 
-    protected $table = 'squadra';
+    protected $table = 'calciatore';
  
     protected $fillable = ['nome_squadra','nome','cognome','numero','ruolo'];
 
