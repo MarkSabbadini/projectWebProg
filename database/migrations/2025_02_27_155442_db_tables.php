@@ -42,6 +42,12 @@ return new class extends Migration {
             $table->timestamps();
         });
 
+        Schema::create('squadra', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('nome');
+            $table->timestamps();
+        });
+
         Schema::create('calciatore', function (Blueprint $table) {
             $table->id();
             $table->string('nome_squadra');
@@ -70,6 +76,8 @@ return new class extends Migration {
             $table->timestamps();
         });
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
         // VINCOLI DI INTEGRITÀ REFERENZIALE
 
         Schema::table('iscrizione', function (Blueprint $table) {
