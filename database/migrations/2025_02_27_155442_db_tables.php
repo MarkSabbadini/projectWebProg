@@ -5,9 +5,11 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
+   
     /**
      * Run the migrations.
      */
+
     public function up(): void
     {
         Schema::create('utente', function (Blueprint $table) {
@@ -75,7 +77,23 @@ return new class extends Migration {
             $table->foreign('id_utente')->references('id')->on('utente');
         });
 
+       // ************************* CHECK! onCascade mettere?
+       // goal -> calciatore, partita
+       Schema::table('goal', function (Blueprint $table) {
+            $table->foreign('id_marcatore')->references('id')->on('calciatore');
+            $table->foreign('id_partita')->references('id')->on('partita');
+           
+        });
+
+        // partita -> squadra (se esiste la tabella 'squadra' con pk 'id'):
+        Schema::table('partita', function (Blueprint $table) {
+            $table->foreign('id_squadra_home')->references('id')->on('squadra');
+            $table->foreign('id_squadra_away')->references('id')->on('squadra');
+        
+        });
     }
+
+       
 
     /**
      * Reverse the migrations.
