@@ -17,7 +17,9 @@ class GoalFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'id_marcatore' => $this->faker->randomNumber(), 
+            'id_partita' => $this->faker->randomNumber(),
+            'minuto' => $this->faker->randomNumber(),  
         ];
     }
 }

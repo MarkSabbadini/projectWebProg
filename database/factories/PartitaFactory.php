@@ -17,7 +17,11 @@ class PartitaFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'id_squadra_home' => $this->faker->randomNumber(), 
+            'id_squadra_away' => $this->faker->randomNumber(),
+            'goal_home' => $this->faker->randomDigitNotNull(), 
+            'goal_away' => $this->faker->randomDigitNotNull(),  
+            'data' => $this->faker->dateTime()
         ];
     }
 }

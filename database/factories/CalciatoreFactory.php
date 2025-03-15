@@ -17,7 +17,11 @@ class CalciatoreFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'nome_squadra' => $this->faker->firstName(), 
+            'nome' => $this->faker->firstName(),
+            'cognome' => $this->faker->firstName(),
+            'numero' =>  $this->faker->randomNumber(),
+            'ruolo' => $this->faker->titleMale()
         ];
     }
 }
