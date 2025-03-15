@@ -60,16 +60,16 @@ return new class extends Migration {
 
         Schema::create('goal', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_marcatore');
-            $table->integer('id_partita');
+            $table->unsignedBigInteger('id_marcatore');
+            $table->unsignedBigInteger('id_partita');
             $table->integer('numero');
             $table->timestamps();
         });
 
         Schema::create('partita', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_squadra_home');
-            $table->integer('id_squadra_away');
+            $table->unsignedBigInteger('id_squadra_home');
+            $table->unsignedBigInteger('id_squadra_away');
             $table->integer('goal_home');
             $table->integer( 'goal_away');
             $table->dateTime('data');
