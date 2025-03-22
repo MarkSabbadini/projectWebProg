@@ -44,7 +44,7 @@ return new class extends Migration {
 
         Schema::create('squadra', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('nome');
+            $table->string('nome');
             $table->timestamps();
         });
 
