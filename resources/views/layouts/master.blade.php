@@ -54,7 +54,7 @@
                             Calcio
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{ route('calcio.index') }}">Le nostre squadre</a></li>
+                            <li><a class="dropdown-item" href="{{ route('calcio.squadre') }}">Le nostre squadre</a></li>
                             <li><a class="dropdown-item" href="{{ route('risultati') }}">Risultati e classifiche</a></li>
                             <li><a class="dropdown-item" href="{{ route('torneo') }}">Torneo estivo</a></li>
                         </ul>
@@ -67,7 +67,7 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ route('raduno.index') }}">Raduno Scialpinistico</a></li>
                             <li><a class="dropdown-item" href="{{ route('caspolata.index') }}">Caspolata</a></li>
-                            <li><a class="dropdown-item" href="{{ route(name: 'creaEvento') }}">Inserisci un nuovo evento</a></li>
+                            <li><a class="dropdown-item" href="{{ route('creaEvento') }}">Inserisci un nuovo evento</a></li>
 
                         </ul>
                     </li>

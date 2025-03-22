@@ -20,7 +20,7 @@ class CalciatoreFactory extends Factory
             'nome_squadra' => $this->faker->firstName(), 
             'nome' => $this->faker->firstName(),
             'cognome' => $this->faker->firstName(),
-            'numero' =>  $this->faker->randomNumber(),
+            'numero' => $this->faker->numberBetween(1, 99),
             'ruolo' => $this->faker->titleMale()
         ];
     }

@@ -45,7 +45,7 @@ class DatabaseSeeder extends Seeder
          // 4. Per ogni squadra crea da 5 a 11 calciatori
          $squadre->each(function ($squadra) {
              Calciatore::factory()
-                 ->count(rand(5, 11))
+                 ->count(rand(9, 15))
                  ->create(['nome_squadra' => $squadra->nome]);
          });
  

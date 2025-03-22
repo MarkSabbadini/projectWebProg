@@ -5,6 +5,8 @@ use App\Http\Controllers\CaspolataController;
 use App\Http\Controllers\RadunoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\SquadraController;
+
 
 
 Route::get('/', [FrontController::class, 'getHome'])->name('home'); // V
@@ -36,6 +38,8 @@ Route::resource('calcio', CalcioController::class)->except('show');
 
 Route::get('/calcio/risultati', [CalcioController::class, 'risultati'])->name('risultati');
 Route::get('/calcio/torneo', [CalcioController::class, 'torneo'])->name('torneo');
+
+Route::get('/calcio/squadre', [SquadraController::class, 'index'])->name('calcio.squadre');
 
 
 
