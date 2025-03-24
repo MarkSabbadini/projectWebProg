@@ -1,8 +1,7 @@
 <?php
 
 use App\Http\Controllers\CalcioController;
-use App\Http\Controllers\CaspolataController;
-use App\Http\Controllers\RadunoController;
+use App\Http\Controllers\EventoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\SquadraController;
@@ -20,17 +19,20 @@ Route::get('/contatti', [FrontController::class, 'getContatti'])->name('contatti
 Route::get('/eventi/creaEvento', [FrontController::class, 'getCreaEvento'])->name('creaEvento');
 
 ////////////////
-Route::resource('caspolata', CaspolataController::class);
 
-Route::get('/eventi/caspolata/iscrizioneCaspolata', [CaspolataController::class, 'getIscrizioneCaspolata'])->name('iscrizioneCaspolata');
-
-////////////////
-Route::resource('raduno', RadunoController::class);
-
-Route::get('/eventi/raduno/iscrizioneRadunoSingolo', [RadunoController::class, 'getIscrizioneRadunoSingolo'])->name('iscrizioneRadunoSingolo');
+Route::get('/caspolata', [EventoController::class, 'caspolataIndex'])->name('caspolata.index');
+Route::get('/caspolata/iscrizioneCaspolata', [EventoController::class, 'iscrizioneCaspolata'])->name('caspolata.iscrizione');
 
 ////////////////
 
+Route::get('/raduno', [EventoController::class, 'radunoIndex'])->name('raduno.index');
+Route::get('/raduno/iscrizioneRaduno', [EventoController::class, 'iscrizioneRaduno'])->name('raduno.iscrizione');
+
+
+////////////////
+
+Route::get('/evento/crea', [EventoController::class, 'create'])->name('evento.create');
+Route::post('/evento', [EventoController::class, 'store'])->name('evento.store');
 
 
 ///////////////

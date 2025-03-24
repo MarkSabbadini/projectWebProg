@@ -8,14 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, 
               user-scalable=no">
 
-    
+
     <link rel="icon" type="image/x-icon" href="{{ asset('img/logo.png') }}">
 
 
     <!-- Fogli di stile -->
     <link rel="stylesheet" href="{{ url('/') }}/css/bootstrap.min.css">
     <link href="{{ url('/') }}/css/myStyle.css" rel="stylesheet">
-    <link href="{{ url('/') }}/css/themeStyle.css" rel="stylesheet"> 
+    <link href="{{ url('/') }}/css/themeStyle.css" rel="stylesheet">
 
     <!-- jQuery e plugin JavaScript  -->
     <script src="http://code.jquery.com/jquery.js"></script>
@@ -55,7 +55,8 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ route('calcio.squadre') }}">Le nostre squadre</a></li>
-                            <li><a class="dropdown-item" href="{{ route('risultati') }}">Risultati e classifiche</a></li>
+                            <li><a class="dropdown-item" href="{{ route('risultati') }}">Risultati e classifiche</a>
+                            </li>
                             <li><a class="dropdown-item" href="{{ route('torneo') }}">Torneo estivo</a></li>
                         </ul>
                     </li>
@@ -65,10 +66,11 @@
                             Eventi Sportivi
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{ route('raduno.index') }}">Raduno Scialpinistico</a></li>
+                            <li><a class="dropdown-item" href="{{ route('raduno.index') }}">Raduno Scialpinistico</a>
+                            </li>
                             <li><a class="dropdown-item" href="{{ route('caspolata.index') }}">Caspolata</a></li>
-                            <li><a class="dropdown-item" href="{{ route('creaEvento') }}">Inserisci un nuovo evento</a></li>
-
+                            <li><a class="dropdown-item" href="{{ route('evento.create') }}">Inserisci un nuovo
+                                    evento</a></li>
                         </ul>
                     </li>
                     <li class="nav-item btn">
@@ -78,12 +80,13 @@
             </div>
         </div>
     </nav>
-    <header class="py-1 bg-image-full" style="background-image: url('{{ asset('img/sfondi/sfondo1.jpg') }}')">      <!-- NB py-1 classe del contenitore dell'img-->
-            <div class="text-center my-5">
-                <img class="img-fluid rounded-circle mb-4 logo-small" src="{{ asset('img/logo.png') }}" alt="..." />
-                <h1 class="text-white fs-3 fw-bolder scritta-img">UNIONE SPORTIVA CORTENO GOLGI</h1>
-            </div>
-    </header> 
+    <header class="py-1 bg-image-full" style="background-image: url('{{ asset('img/sfondi/sfondo1.jpg') }}')">
+        <!-- NB py-1 classe del contenitore dell'img-->
+        <div class="text-center my-5">
+            <img class="img-fluid rounded-circle mb-4 logo-small" src="{{ asset('img/logo.png') }}" alt="..." />
+            <h1 class="text-white fs-3 fw-bolder scritta-img">UNIONE SPORTIVA CORTENO GOLGI</h1>
+        </div>
+    </header>
 
     <div class="container-fluid">
         <header class="header-sezione">
@@ -104,8 +107,10 @@
                     <p>Unione Sportiva Corteno Golgi</p>
                 </div>
                 <div class="col">
-                    <a href="https://www.instagram.com/u.s._cortenogolgi/" target="_blank" class="social-icon"><i class="bi bi-instagram"></i></a>
-                    <a href="https://www.instagram.com/u.s._cortenogolgi/" target="_blank" class="social-icon"><i class="bi bi-facebook"></i></a>
+                    <a href="https://www.instagram.com/u.s._cortenogolgi/" target="_blank" class="social-icon"><i
+                            class="bi bi-instagram"></i></a>
+                    <a href="https://www.instagram.com/u.s._cortenogolgi/" target="_blank" class="social-icon"><i
+                            class="bi bi-facebook"></i></a>
                 </div>
             </div>
         </div>

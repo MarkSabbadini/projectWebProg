@@ -8,47 +8,49 @@
 @endsection
 
 @section('body')
-    <form>
+    <form method="POST" action="{{ route('evento.store') }}" enctype="multipart/form-data">
+        @csrf
+
         <!-- Prima riga con Nome evento e Anno -->
         <div class="row g-2 align-items-center mb-3">
             <div class="col-auto">
                 <label for="inputNome" class="col-form-label">Nome evento</label>
             </div>
             <div class="col-auto">
-                <input id="inputNome" name="nome" class="form-control" type="text" placeholder="Nome...">
+                <input id="inputNome" name="nome" class="form-control" type="text" placeholder="Nome..." required>
             </div>
             <div class="col-auto">
                 <label for="yearSelect" class="col-form-label">Anno</label>
             </div>
             <div class="col-auto">
-                <select class="form-select" id="yearSelect" name="anno">
+                <select class="form-select" id="yearSelect" name="edizione" required>
                     <option value="" disabled selected>-- Seleziona un anno --</option>
                 </select>
             </div>
         </div>
 
-        <!-- Seconda riga per la descrizione, a tutta larghezza -->
+        <!-- Seconda riga per la descrizione -->
         <div class="row g-2 mb-3">
             <div class="col-12">
                 <label for="inputDescrizione" class="form-label">Inserisci una breve descrizione dell'evento</label>
                 <input id="inputDescrizione" name="descrizione" class="form-control" type="text"
-                    placeholder="Descrizione...">
+                    placeholder="Descrizione..." required>
             </div>
         </div>
 
+        <!-- Tipologia evento -->
         <fieldset class="form-group">
             <div class="row">
                 <legend class="col-form-label col-sm-2 pt-0">Tipologia evento</legend>
                 <div class="col-sm-10">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="raduno"
-                            checked>
+                        <input class="form-check-input" type="radio" name="tipo" id="gridRadios1" value="Raduno" checked>
                         <label class="form-check-label" for="gridRadios1">
                             Raduno scialpinistico
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="caspolata">
+                        <input class="form-check-input" type="radio" name="tipo" id="gridRadios2" value="Caspolata">
                         <label class="form-check-label" for="gridRadios2">
                             Caspolata
                         </label>
@@ -57,16 +59,17 @@
             </div>
         </fieldset>
 
+        <!-- Upload locandina SISTEMARE E RIAGGIUNGI
         <div class="mb-3">
             <label for="formFile" class="form-label">Carica la locandina dell'evento</label>
-            <input class="form-control" type="file" id="formFile">
-        </div>
+            <input class="form-control" type="file" id="formFile" name="locandina">
+        </div> -->
 
         <div class="form-group row mt-3">
             <div class="col-sm-10">
                 <button type="submit" class="btn btn-primary">Inserisci evento</button>
             </div>
-        </div>
+        </div> 
     </form>
 
     <!-- Script per popolare dinamicamente la select degli anni -->

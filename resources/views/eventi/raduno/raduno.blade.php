@@ -12,7 +12,7 @@
     <div class="container mt-5">
         <h2>Iscrizione 26° RADUNO SCIALPINISTICO VALDICORTENO</h2>
 
-        <a href="{{ route('iscrizioneRadunoSingolo') }}" class="btn btn-primary">Modulo iscrizione per singolo</a>          
+        <a href="{{ route('raduno.iscrizione') }}" class="btn btn-primary">Modulo iscrizione</a>          
   
     </div>
 @endsection
