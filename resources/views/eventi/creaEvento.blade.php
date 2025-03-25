@@ -59,11 +59,11 @@
             </div>
         </fieldset>
 
-        <!-- Upload locandina SISTEMARE E RIAGGIUNGI
+        <!-- Upload locandina -->
         <div class="mb-3">
             <label for="formFile" class="form-label">Carica la locandina dell'evento</label>
             <input class="form-control" type="file" id="formFile" name="locandina">
-        </div> -->
+        </div> 
 
         <div class="form-group row mt-3">
             <div class="col-sm-10">

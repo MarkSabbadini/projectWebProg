@@ -23,7 +23,7 @@ class EventoFactory extends Factory
             'descrizione' => $this->faker->sentence(1,5),
             'edizione' => $this->faker->year(),
             'tipo' => $this->faker->randomElement(['Raduno', 'Caspolata']),
-            'path_locandina' =>  $this->faker->url()  
+            'locandina' =>  $this->faker->url()  
         ];
     }
 }
