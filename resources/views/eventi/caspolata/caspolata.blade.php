@@ -12,7 +12,6 @@
     @php use Illuminate\Support\Str; @endphp
 
     <div class="container mt-5">
-        <h2>"CASPOLANDO NELLE VALLI DI SANT'ANTONIO" 2025</h2>
         <p>
             Partecipa alla nostra straordinaria Caspolata 2025! Per iscriverti, clicca sul link qui sotto:
         </p>
