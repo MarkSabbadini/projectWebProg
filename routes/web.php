@@ -29,7 +29,7 @@ Route::get('/raduno', [EventoController::class, 'radunoIndex'])->name('raduno.in
 Route::get('/raduno/iscrizioneRaduno', [EventoController::class, 'iscrizioneRaduno'])->name('raduno.iscrizione');
 
 
-////////////////
+///////////////
 
 Route::get('/evento/crea', [EventoController::class, 'create'])->name('evento.create');
 Route::post('/evento', [EventoController::class, 'store'])->name('evento.store');
