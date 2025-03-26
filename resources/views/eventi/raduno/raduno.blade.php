@@ -1,19 +1,48 @@
 @extends('layouts.master')
 
-@section('title', '26° RADUNO SCIALPINISTICO VALDICORTENO')
+@section('title', 'Eventi Raduno')
 
 @section('active_home', 'active')
 
 @section('breadcrumb')
-<li class="breadcrumb-item active" aria-current="page">26° RADUNO SCIALPINISTICO VALDICORTENO </li>
+    <li class="breadcrumb-item active" aria-current="page">Raduno scialpinismo</li>
 @endsection
 
 @section('body')
-    <div class="container mt-5">
-        <h2>Iscrizione 26° RADUNO SCIALPINISTICO VALDICORTENO</h2>
+    @php use Illuminate\Support\Str; @endphp
 
-        <a href="{{ route('raduno.iscrizione') }}" class="btn btn-primary">Modulo iscrizione</a>          
-  
+    <div class="container mt-5">
+
+    @forelse($eventi as $evento)
+        <div class="card mt-4">
+            <div class="card-body">
+                <div class="row align-items-start">
+                    <!-- Colonna sinistra: dettagli -->
+                    <div class="col-md-8">
+                        <h4 class="card-title">{{ $evento->nome }}</h4>
+                        <p><strong>Edizione:</strong> {{ $evento->edizione }}</p>
+                        <p><strong>Descrizione:</strong> {{ $evento->descrizione }}</p>
+
+                        <a href="{{ route('raduno.iscrizione') }}" class="btn btn-primary mt-2">Modulo iscrizione</a>
+                    </div>
+
+                    <!-- Colonna destra: locandina -->
+                    <div class="col-md-4 text-end">
+                        @if($evento->locandina)
+                            @if(Str::endsWith($evento->locandina, ['.jpg', '.jpeg', '.png']))
+                                <img src="{{ asset('storage/' . $evento->locandina) }}" alt="Locandina" class="img-thumbnail" style="max-width: 100%; height: auto;">
+                            @elseif(Str::endsWith($evento->locandina, ['.pdf']))
+                                <iframe src="{{ asset('storage/' . $evento->locandina) }}" width="100%" height="200px" style="border: none;"></iframe>
+                            @else
+                                <a href="{{ asset('storage/' . $evento->locandina) }}" target="_blank">Visualizza locandina</a>
+                            @endif
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </div>
+        @empty
+            <p>Nessun <b>RADUNO SCIALPINISTICO</b> disponibile al momento!</p>
+        @endforelse
     </div>
 @endsection
-

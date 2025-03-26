@@ -10,15 +10,18 @@ class EventoController extends Controller
 {
     // Homepage per gli eventi Raduno
     public function radunoIndex()
-    {
-        return view('eventi.raduno.raduno');
-    }
+{
+    $eventi = Evento::where('tipo', 'Raduno')->get();
+    return view('eventi.raduno.raduno', compact('eventi'));
+}
 
     // Homepage per gli eventi Caspolata
     public function caspolataIndex()
-    {
-        return view('eventi.caspolata.caspolata');
-    }
+{
+    $eventi = Evento::where('tipo', 'Caspolata')->get();
+    return view('eventi.caspolata.caspolata', compact('eventi'));
+}
+
 
     // Form di creazione evento (usato da entrambi i tipi)
     public function create()
@@ -64,4 +67,4 @@ class EventoController extends Controller
     {
         return view('eventi.caspolata.iscrizioneCaspolata');
     }
-}
+} 

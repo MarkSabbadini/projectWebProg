@@ -53,8 +53,10 @@ class DatabaseSeeder extends Seeder
          $squadreIds = $squadre->pluck('id')->toArray();
  
          for ($i = 0; $i < 3; $i++) {
-             // Prendi due squadre diverse casuali
+             
+            // Prendi due squadre diverse casuali
              $home = $squadreIds[array_rand($squadreIds)];
+             
              do {
                  $away = $squadreIds[array_rand($squadreIds)];
              } while ($away === $home);
