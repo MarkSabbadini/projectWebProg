@@ -100,6 +100,12 @@ return new class extends Migration {
             $table->foreign('id_squadra_away')->references('id')->on('squadra');
         
         });
+        
+        // CHECK! -> vedere se corretto 
+        Schema::table('calciatore', function (Blueprint $table) {
+            $table->foreign('nome_squadra')->references('nome')->on('squadra');
+        
+        });
     }
 
        
