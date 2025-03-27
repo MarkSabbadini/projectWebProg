@@ -4,18 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\DataLayer;
-use App\Models\Evento;
 
 use Illuminate\Support\Facades\Storage;
 
 class EventoController extends Controller
 {
-    protected $dl;
+    public function index(){
+        $dl = new DataLayer();
+        $films = $dl->listEventi();
 
-    public function __construct()
-    {
-        $this->dl = new DataLayer();
+        return view('eventi.raduno.raduno')->with('raduno_list', $films);
     }
+
 
     // Homepage per gli eventi Raduno
     public function radunoIndex()

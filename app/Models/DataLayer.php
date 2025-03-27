@@ -7,23 +7,7 @@ use Illuminate\Support\Facades\Storage;
 
 class DataLayer
 {
-    // Inserimento nuovo evento
-    public function addEvento($nome, $edizione, $tipo, $descrizione, $locandinaPath = null)
-    {
-        $evento = new Evento();
 
-        $evento->nome = $nome;
-        $evento->edizione = $edizione;
-        $evento->tipo = $tipo;
-        $evento->descrizione = $descrizione;
-        $evento->locandina = $locandinaPath;
-
-        $evento->save();
-
-        return $evento;
-    }
-
-    // Lista di tutti gli eventi
     public function listEventi()
     {
         return Evento::orderBy('created_at', 'desc')->get();
@@ -41,6 +25,22 @@ class DataLayer
         return Evento::find($id);
     }
 
+    // Inserimento nuovo evento
+    public function addEvento($nome, $edizione, $tipo, $descrizione, $locandinaPath = null)
+    {
+        $evento = new Evento();
+
+        $evento->nome = $nome;
+        $evento->edizione = $edizione;
+        $evento->tipo = $tipo;
+        $evento->descrizione = $descrizione;
+        $evento->locandina = $locandinaPath;
+
+        $evento->save();
+
+        return $evento;
+    }
+    
     // Modifica evento esistente
     public function editEvento($id, $nome, $edizione, $tipo, $descrizione, $locandinaPath = null)
     {
