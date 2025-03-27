@@ -38,15 +38,6 @@
         <label for="validationDefault03" class="form-label">Indirizzo</label>
         <input type="text" class="form-control" id="validationDefault03" required>
     </div>
-    <div class="col-md-3">
-        <label for="validationDefault04" class="form-label">Tipologia di iscrizione</label>
-        <select class="form-select" id="validationDefault04" required>
-            <option selected disabled value="">Seleziona tipologia di iscrizione</option>
-            <option>Normale</option>
-            <option>Con noleggio</option>
-
-        </select>
-    </div>
     <div class="col-12">
         <div class="form-check">
             <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>

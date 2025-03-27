@@ -47,14 +47,6 @@
             <label for="provincia" class="form-label">Nazione</label>
             <input type="text" class="form-control" id="nazione" name="provincia" required>
         </div>
-        <div class="col-md-3">
-            <label for="tipo_iscrizione" class="form-label">Tipologia di iscrizione</label>
-            <select class="form-select" id="tipo_iscrizione" name="tipo_iscrizione" required>
-                <option selected disabled value="">Seleziona tipologia</option>
-                <option value="senza_pranzo">Iscrizione senza pranzo € 25</option>
-                <option value="con_pranzo">Iscrizione con pranzo € 35</option>
-            </select>
-        </div>
         <div class="col-md-6">
             <label for="ricevuta" class="form-label">Carica qui la ricevuta del tuo pagamento</label>
             <input class="form-control" type="file" id="ricevuta" name="ricevuta" required>

@@ -32,7 +32,6 @@ class IscrizioneController extends Controller
             'provincia' => 'required|string|max:255',
             'nazione' => 'required|string|max:255',
             'evento_id' => 'required|integer|exists:evento,id',
-            'tipo_iscrizione' => 'required',
             'ricevuta' => 'required|file|mimes:jpg,jpeg,png,pdf|max:2048',
         ]);
     
@@ -54,7 +53,6 @@ class IscrizioneController extends Controller
     
         // Associa utente all'evento con dati extra nella pivot
         $utente->iscrizioni()->attach($evento->id, [
-            'tipo_iscrizione' => $request->tipo_iscrizione,
             'ricevuta' => $path,
         ]);
     

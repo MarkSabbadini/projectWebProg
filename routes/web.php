@@ -17,8 +17,6 @@ Route::get('/direttivo', [FrontController::class, 'getDirettivo'])->name('dirett
 
 Route::get('/contatti', [FrontController::class, 'getContatti'])->name('contatti');
 
-Route::get('/eventi/creaEvento', [FrontController::class, 'getCreaEvento'])->name('creaEvento');
-
 ////////////////
 
 Route::get('/caspolata', [EventoController::class, 'caspolataIndex'])->name('caspolata.index');

@@ -8,6 +8,13 @@
 @endsection
 
 @section('body')
+    
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
     <form method="POST" action="{{ route('evento.store') }}" enctype="multipart/form-data">
         @csrf
 
@@ -63,13 +70,13 @@
         <div class="mb-3">
             <label for="formFile" class="form-label">Carica la locandina dell'evento</label>
             <input class="form-control" type="file" id="formFile" name="locandina">
-        </div> 
+        </div>
 
         <div class="form-group row mt-3">
             <div class="col-sm-10">
                 <button type="submit" class="btn btn-primary">Inserisci evento</button>
             </div>
-        </div> 
+        </div>
     </form>
 
     <!-- Script per popolare dinamicamente la select degli anni -->

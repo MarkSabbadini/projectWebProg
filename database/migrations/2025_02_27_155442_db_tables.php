@@ -28,9 +28,9 @@ return new class extends Migration {
         Schema::create('evento', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            $table->string(column: 'tipo');
-            $table->string('descrizione');
             $table->integer('edizione');
+            $table->string( 'tipo');
+            $table->string('descrizione');
             $table->string('locandina')->nullable();
             $table->timestamps();
         });
@@ -39,8 +39,7 @@ return new class extends Migration {
             $table->id();
             $table->unsignedBigInteger('id_utente');
             $table->unsignedBigInteger('id_evento');
-            $table->string('tipo_iscrizione');
-            $table->string('ricevuta');
+            $table->string('ricevuta')->nullable();
             $table->timestamps();
         });
 

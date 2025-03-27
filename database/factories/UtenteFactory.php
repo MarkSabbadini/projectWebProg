@@ -21,7 +21,6 @@ class UtenteFactory extends Factory
             'cellulare' => $this->faker->randomDigitNotNull(),
             'email' => $this->faker->safeEmail(),
             'via' => $this->faker->streetName(),
-            'civico' => $this->faker->randomDigitNotNull(),
             'comune' => $this->faker->city(),
             'provincia' => $this->faker->state,
             'nazione' => $this->faker->countryCode()
