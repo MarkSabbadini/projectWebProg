@@ -19,7 +19,6 @@ return new class extends Migration {
             $table->text('email');
             $table->integer('cellulare');
             $table->string('via');
-            $table->integer('civico');
             $table->string('comune');
             $table->string('provincia');
             $table->string('nazione');
@@ -40,6 +39,8 @@ return new class extends Migration {
             $table->id();
             $table->unsignedBigInteger('id_utente');
             $table->unsignedBigInteger('id_evento');
+            $table->string('tipo_iscrizione');
+            $table->string('ricevuta');
             $table->timestamps();
         });
 

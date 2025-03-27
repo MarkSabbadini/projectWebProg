@@ -51,15 +51,9 @@ class EventoController extends Controller
     }
 
     // Pagina iscrizione singola a raduno
-    public function iscrizioneRadunoSingolo()
+    public function iscrizioneRaduno()
     {
-        return view('eventi.raduno.iscrizioneRadunoSingolo');
-    }
-
-    // Pagina iscrizione di gruppo a raduno
-    public function iscrizioneRadunoGruppo()
-    {
-        return view('eventi.raduno.iscrizioneRadunoGruppo');
+        return view('eventi.raduno.iscrizioneRaduno');
     }
 
     // Pagina iscrizione a caspolata

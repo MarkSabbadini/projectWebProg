@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'CASPOLATA 2025')
+@section('title', 'EVENTO CASPOLATA')
 
 @section('active_home', 'active')
 

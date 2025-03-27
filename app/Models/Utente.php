@@ -10,7 +10,7 @@ class Utente extends Model
     use HasFactory;
     protected $table = 'utente';
  
-    protected $fillable = ['nome', 'cognome','cellulare','email','via','civico','comune','provincia','nazione'];
+    protected $fillable = ['nome', 'cognome','cellulare','email','via','comune','provincia','nazione'];
 
     // Metodi per andare a gestire le "associazioni"
     public function iscrizioni()

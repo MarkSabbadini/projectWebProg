@@ -1,11 +1,11 @@
 @extends('layouts.master')
 
-@section('title', 'Eventi Raduno')
+@section('title', 'EVENTO RADUNO')
 
 @section('active_home', 'active')
 
 @section('breadcrumb')
-    <li class="breadcrumb-item active" aria-current="page">Raduno scialpinismo</li>
+    <li class="breadcrumb-item active" aria-current="page">Raduno scialpinistico Valdicorteno</li>
 @endsection
 
 @section('body')
@@ -17,16 +17,17 @@
         <div class="card mt-4">
             <div class="card-body">
                 <div class="row align-items-start">
-                    <!-- Colonna sinistra: dettagli -->
+                    
                     <div class="col-md-8">
                         <h4 class="card-title">{{ $evento->nome }}</h4>
                         <p><strong>Edizione:</strong> {{ $evento->edizione }}</p>
                         <p><strong>Descrizione:</strong> {{ $evento->descrizione }}</p>
 
-                        <a href="{{ route('raduno.iscrizione') }}" class="btn btn-primary mt-2">Modulo iscrizione</a>
+                        <a href="{{ route('raduno.iscrizione', ['evento' => $evento->id]) }}" class="btn btn-primary mt-2">Modulo iscrizione</a>
+
                     </div>
 
-                    <!-- Colonna destra: locandina -->
+                    
                     <div class="col-md-4 text-end">
                         @if($evento->locandina)
                             @if(Str::endsWith($evento->locandina, ['.jpg', '.jpeg', '.png']))

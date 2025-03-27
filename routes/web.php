@@ -5,6 +5,7 @@ use App\Http\Controllers\EventoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\SquadraController;
+use App\Http\Controllers\IscrizioneController;
 
 
 
@@ -21,18 +22,22 @@ Route::get('/eventi/creaEvento', [FrontController::class, 'getCreaEvento'])->nam
 ////////////////
 
 Route::get('/caspolata', [EventoController::class, 'caspolataIndex'])->name('caspolata.index');
-Route::get('/caspolata/iscrizioneCaspolata', [EventoController::class, 'iscrizioneCaspolata'])->name('caspolata.iscrizione');
+Route::get('/iscrizione/caspolata/{evento}', [IscrizioneController::class, 'formCaspolata'])->name('caspolata.iscrizione');
 
 ////////////////
 
 Route::get('/raduno', [EventoController::class, 'radunoIndex'])->name('raduno.index');
-Route::get('/raduno/iscrizioneRaduno', [EventoController::class, 'iscrizioneRaduno'])->name('raduno.iscrizione');
+Route::get('/iscrizione/raduno/{evento}', [IscrizioneController::class, 'formRaduno'])->name('raduno.iscrizione');
 
 
 ///////////////
 
 Route::get('/evento/crea', [EventoController::class, 'create'])->name('evento.create');
 Route::post('/evento', [EventoController::class, 'store'])->name('evento.store');
+
+///////////////
+
+Route::post('/iscrizione/submit', [IscrizioneController::class, 'submit'])->name('iscrizione.submit');
 
 
 ///////////////
