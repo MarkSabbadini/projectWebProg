@@ -7,11 +7,11 @@ use Illuminate\Support\Facades\Redirect;
 
 class CaspolataController extends Controller
 {
-    public function indexRaduno(){
+    public function index(){
         $dl = new DataLayer();
-        $films = $dl->listEventi();
+        $eventi = $dl->listEventi();
 
-        return view('eventi.raduno.raduno')->with('raduno_list', $films);
+        return view('eventi.caspolata.caspolata')->with('caspolata_list', $eventi);
     }
 
 

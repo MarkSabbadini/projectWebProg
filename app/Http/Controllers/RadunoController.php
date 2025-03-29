@@ -9,9 +9,9 @@ class RadunoController extends Controller
 {
     public function index(){
         $dl = new DataLayer();
-        $films = $dl->listEventi();
+        $eventi = $dl->listEventi();
 
-        return view('eventi.raduno.raduno')->with('raduno_list', $films);
+        return view('eventi.raduno.raduno')->with('raduno_list', $eventi);
     }
 
     // Pagina iscrizione per raduno
