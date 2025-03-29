@@ -1,34 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 use App\Models\DataLayer;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
-use Illuminate\Support\Facades\Storage;
-
-class EventoController extends Controller
+class RadunoController extends Controller
 {
     public function index(){
         $dl = new DataLayer();
         $films = $dl->listEventi();
 
         return view('eventi.raduno.raduno')->with('raduno_list', $films);
-    }
-
-
-    // Homepage per gli eventi Raduno
-    public function radunoIndex()
-    {
-        $eventi = $this->dl->listEventiByTipo('Raduno');
-        return view('eventi.raduno.raduno', compact('eventi'));
-    }
-
-    // Homepage per gli eventi Caspolata
-    public function caspolataIndex()
-    {
-        $eventi = $this->dl->listEventiByTipo('Caspolata');
-        return view('eventi.caspolata.caspolata', compact('eventi'));
     }
 
     // Form di creazione evento

@@ -1,48 +1,53 @@
 <?php
 
 namespace App\Models;
-
 use Illuminate\Support\Facades\Storage;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Hash;
+
 
 
 class DataLayer
 {
 
+    // Ritorna lista eventi
     public function listEventi()
     {
-        return Evento::orderBy('created_at', 'desc')->get();
+        $eventi =  Evento::orderBy('created_at', 'desc')->get();
+
+        return $eventi;
     }
 
     // Lista eventi per tipo
     public function listEventiByTipo($tipo)
     {
-        return Evento::where('tipo', $tipo)->orderBy('created_at', 'desc')->get();
+        $eventi_per_tipo =  Evento::where('tipo', $tipo)->orderBy('created_at', 'desc')->get();
+
+        return $eventi_per_tipo;
     }
 
-    // Ricerca evento per ID
+    // Ricerca evento per id
     public function findEventoById($id)
     {
         return Evento::find($id);
     }
 
     // Inserimento nuovo evento
-    public function addEvento($nome, $edizione, $tipo, $descrizione, $locandinaPath = null)
+    public function addEvento($nome, $edizione, $tipo, $descrizione, $locandina)
     {
-        $evento = new Evento();
+        $evento = new Evento;
 
         $evento->nome = $nome;
         $evento->edizione = $edizione;
         $evento->tipo = $tipo;
         $evento->descrizione = $descrizione;
-        $evento->locandina = $locandinaPath;
+        $evento->locandina = $locandina;
 
         $evento->save();
-
-        return $evento;
     }
     
     // Modifica evento esistente
-    public function editEvento($id, $nome, $edizione, $tipo, $descrizione, $locandinaPath = null)
+    public function editEvento($id, $nome, $edizione, $tipo, $descrizione, $locandina)
     {
         $evento = Evento::find($id);
 
@@ -54,18 +59,18 @@ class DataLayer
         $evento->tipo = $tipo;
         $evento->descrizione = $descrizione;
 
-        if ($locandinaPath) {
+        if ($locandina != null) {
+
+            $attualeLocandina = $evento->locandina;
             // Rimuovi locandina precedente se presente
-            if ($evento->locandina && Storage::disk('public')->exists($evento->locandina)) {
-                Storage::disk('public')->delete($evento->locandina);
+            if ($evento->locandina && Storage::disk('public')->exists($evento->$attualeLocandina)) {
+                Storage::disk('public')->delete($evento->attualeLocandina);
             }
 
-            $evento->locandina = $locandinaPath;
+            $evento->locandina = $locandina;
         }
 
         $evento->save();
-
-        return $evento;
     }
 
     // Eliminazione evento

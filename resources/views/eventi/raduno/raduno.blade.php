@@ -13,7 +13,8 @@
 
     <div class="container mt-5">
 
-    @forelse($eventi as $evento)
+    @forelse($raduno_list as $evento)
+
         <div class="card mt-4">
             <div class="card-body">
                 <div class="row align-items-start">
