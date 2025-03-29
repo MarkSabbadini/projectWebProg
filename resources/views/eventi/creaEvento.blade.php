@@ -8,10 +8,20 @@
 @endsection
 
 @section('body')
-    
-    @if(session('success'))
+
+@if(session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
+        </div>
+    @endif
+
+        @if($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
         </div>
     @endif
 
@@ -69,7 +79,7 @@
         <!-- Upload locandina -->
         <div class="mb-3">
             <label for="formFile" class="form-label">Carica la locandina dell'evento</label>
-            <input class="form-control" type="file" id="formFile" name="locandina">
+            <input class="form-control" type="file" id="formFile" name="locandina_path">
         </div>
 
         <div class="form-group row mt-3">
@@ -78,6 +88,7 @@
             </div>
         </div>
     </form>
+
 
     <!-- Script per popolare dinamicamente la select degli anni -->
     <script>

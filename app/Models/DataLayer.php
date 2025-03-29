@@ -41,7 +41,7 @@ class DataLayer
         $evento->edizione = $edizione;
         $evento->tipo = $tipo;
         $evento->descrizione = $descrizione;
-        $evento->locandina = $locandina;
+        $evento->locandina_path = $locandina;
 
         $evento->save();
     }

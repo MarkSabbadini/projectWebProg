@@ -31,7 +31,7 @@ return new class extends Migration {
             $table->integer('edizione');
             $table->string( 'tipo');
             $table->string('descrizione');
-            $table->string('locandina')->nullable();
+            $table->string('locandina_path')->nullable();
             $table->timestamps();
         });
 

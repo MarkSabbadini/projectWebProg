@@ -6,6 +6,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\SquadraController;
 use App\Http\Controllers\IscrizioneController;
+use App\Http\Controllers\RadunoController;
+use App\Http\Controllers\CaspolataController;
+
 
 
 
@@ -19,12 +22,12 @@ Route::get('/contatti', [FrontController::class, 'getContatti'])->name('contatti
 
 ////////////////
 
-Route::get('/caspolata', [EventoController::class, 'caspolataIndex'])->name('caspolata.index');
+Route::get('/caspolata', [CaspolataController::class, 'index'])->name('caspolata.index');
 Route::get('/iscrizione/caspolata/{evento}', [IscrizioneController::class, 'formCaspolata'])->name('caspolata.iscrizione');
 
 ////////////////
 
-Route::get('/raduno', [EventoController::class, 'radunoIndex'])->name('raduno.index');
+Route::get('/raduno', [RadunoController::class, 'index'])->name('raduno.index');
 Route::get('/iscrizione/raduno/{evento}', [IscrizioneController::class, 'formRaduno'])->name('raduno.iscrizione');
 
 

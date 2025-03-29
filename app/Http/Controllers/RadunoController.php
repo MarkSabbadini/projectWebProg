@@ -14,40 +14,6 @@ class RadunoController extends Controller
         return view('eventi.raduno.raduno')->with('raduno_list', $films);
     }
 
-    // Form di creazione evento
-    public function create()
-    {
-        return view('eventi.creaEvento');
-    }
-
-    // Salvataggio evento nel database
-    public function store(Request $request)
-    {
-        $validated = $request->validate([
-            'nome' => 'required|string|max:255',
-            'edizione' => 'required|integer',
-            'tipo' => 'required|in:Raduno,Caspolata',
-            'descrizione' => 'nullable|string|max:1000',
-            'locandina' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
-        ]);
-
-        $locandinaPath = null;
-
-        if ($request->hasFile('locandina')) {
-            $locandinaPath = $request->file('locandina')->store('locandine', 'public');
-        }
-
-        $this->dl->addEvento(
-            $validated['nome'],
-            $validated['edizione'],
-            $validated['tipo'],
-            $validated['descrizione'],
-            $locandinaPath
-        );
-
-        return redirect()->back()->with('success', 'Evento inserito con successo!');
-    }
-
     // Pagina iscrizione per raduno
     public function iscrizioneRaduno()
     {
