@@ -22,13 +22,14 @@ class EventoController extends Controller
             'edizione' => 'required|integer',
             'tipo' => 'required|in:Raduno,Caspolata',
             'descrizione' => 'nullable|string|max:1000',
-            'locandina' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
+          //  'locandina_path' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
         ]);
 
-        $locandina_path = null;
+        // $locandina_path = null;
 
         if ($request->hasFile('locandina_path')) {
-            $locandina_path = $request->file('locandina')->store('locandine', 'public');
+            $locandina = $request->file('locandina_path')->getClientOriginalName();
+            $path = $request->file('locandina_path')->storeAs('locandine', $locandina,);
         }
 
         $dl = new DataLayer();
@@ -38,7 +39,7 @@ class EventoController extends Controller
             $validated['edizione'],
             $validated['tipo'],
             $validated['descrizione'],
-            $locandina_path
+            $path
         );
 
         return redirect()->back()->with('success', 'Evento inserito con successo!');

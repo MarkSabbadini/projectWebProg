@@ -79,7 +79,7 @@
         <!-- Upload locandina -->
         <div class="mb-3">
             <label for="formFile" class="form-label">Carica la locandina dell'evento</label>
-            <input class="form-control" type="file" id="formFile" name="locandina_path">
+            <input class="form-control" type="file" id="locandina_path" name="locandina_path">
         </div>
 
         <div class="form-group row mt-3">

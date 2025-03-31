@@ -30,13 +30,13 @@
 
                     
                     <div class="col-md-4 text-end">
-                        @if($evento->locandina)
-                            @if(Str::endsWith($evento->locandina, ['.jpg', '.jpeg', '.png']))
-                                <img src="{{ asset('storage/' . $evento->locandina) }}" alt="Locandina" class="img-thumbnail" style="max-width: 100%; height: auto;">
-                            @elseif(Str::endsWith($evento->locandina, ['.pdf']))
-                                <iframe src="{{ asset('storage/' . $evento->locandina) }}" width="100%" height="200px" style="border: none;"></iframe>
+                        @if($evento->locandina_path)
+                            @if(Str::endsWith($evento->locandina_path, ['.jpg', '.jpeg', '.png']))
+                                <img src="{{ asset('storage/' . $evento->locandina_path) }}" alt="Locandina" class="img-thumbnail" style="max-width: 100%; height: auto;">
+                            @elseif(Str::endsWith($evento->locandina_path, ['.pdf']))
+                                <iframe src="{{ asset('storage/' . $evento->locandina_path) }}" width="100%" height="200px" style="border: none;"></iframe>
                             @else
-                                <a href="{{ asset('storage/' . $evento->locandina) }}" target="_blank">Visualizza locandina</a>
+                                <a href="{{ asset('storage/' . $evento->locandina_path) }}" target="_blank">Visualizza locandina</a>
                             @endif
                         @endif
                     </div>
