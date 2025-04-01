@@ -11,20 +11,25 @@ class DataLayer
 {
 
     // Ritorna lista eventi
-    public function listEventi()
+    public function listRaduni()
     {
-        $eventi =  Evento::orderBy('created_at', 'desc')->get();
+        $raduni = Evento::where('tipo', 'raduno')
+            ->orderBy('created_at', 'desc')
+            ->get();
 
-        return $eventi;
+        return $raduni;
     }
 
-    // Lista eventi per tipo
-    public function listEventiByTipo($tipo)
+    public function listCaspolate()
     {
-        $eventi_per_tipo =  Evento::where('tipo', $tipo)->orderBy('created_at', 'desc')->get();
+        $caspolate = Evento::where('tipo', 'caspolata')
+            ->orderBy('created_at', 'desc')
+            ->get();
 
-        return $eventi_per_tipo;
+        return $caspolate;
     }
+
+   
 
     // Ricerca evento per id
     public function findEventoById($id)
@@ -45,7 +50,7 @@ class DataLayer
 
         $evento->save();
     }
-    
+
     // Modifica evento esistente
     public function editEvento($id, $nome, $edizione, $tipo, $descrizione, $locandina)
     {
