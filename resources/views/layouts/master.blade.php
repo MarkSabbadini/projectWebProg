@@ -77,6 +77,38 @@
                         <a class="nav-link" aria-current="page" href="{{ route('contatti') }}">Contatti</a>
                     </li>
                 </ul>
+                @auth
+                    <li class="nav-item dropdown btn">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Area Personale
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="{{ route('profilo') }}"><i
+                                        class="bi bi-person-circle me-1"></i> Profilo</a></li>
+                            <li><a class="dropdown-item" href="{{ route('iscrizione.submit') }}"><i
+                                        class="bi bi-list-check me-1"></i> Le mie iscrizioni</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button class="dropdown-item" type="submit"><i class="bi bi-box-arrow-right me-1"></i>
+                                        Logout</button>
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                @endauth
+
+               <!-- @guest -->
+                    <li class="nav-item btn">
+                        <a class="nav-link" href="{{ route('login') }}"><i class="bi bi-box-arrow-in-right me-1"></i>
+                            Login</a>
+                    </li>
+                <!-- @endguest -->
+
             </div>
         </div>
     </nav>

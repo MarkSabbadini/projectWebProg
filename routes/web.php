@@ -8,6 +8,9 @@ use App\Http\Controllers\SquadraController;
 use App\Http\Controllers\IscrizioneController;
 use App\Http\Controllers\RadunoController;
 use App\Http\Controllers\CaspolataController;
+use App\Http\Controllers\UtenteController;
+
+use Illuminate\Support\Facades\Auth;
 
 
 
@@ -52,6 +55,16 @@ Route::get('/calcio/torneo', [CalcioController::class, 'torneo'])->name('torneo'
 
 Route::get('/calcio/squadre', [SquadraController::class, 'index'])->name('calcio.squadre');
 
+///////// LOGIN E AREA RISERVATA
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profilo', [UtenteController::class, 'profilo'])->name('profilo');
+    Route::get('/mie-iscrizioni', [UtenteController::class, 'mieIscrizioni'])->name('iscrizione.submit');
+    Route::post('/logout', function () {
+        Auth::logout();
+        return redirect('/')->with('success', 'Logout effettuato con successo!');
+    })->name('logout');
+});
 
 
 

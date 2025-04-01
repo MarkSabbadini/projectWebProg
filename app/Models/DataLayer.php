@@ -106,8 +106,6 @@ class DataLayer
         return $evento ? $evento->iscritti : null;
     }
 
-
-
     public function listUtenti()
     {
         return Utente::orderBy('cognome', 'asc')->orderBy('nome', 'asc')->get();
