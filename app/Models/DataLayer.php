@@ -29,7 +29,7 @@ class DataLayer
         return $caspolate;
     }
 
-   
+
 
     // Ricerca evento per id
     public function findEventoById($id)
@@ -51,32 +51,6 @@ class DataLayer
         $evento->save();
     }
 
-    // Modifica evento esistente
-    public function editEvento($id, $nome, $edizione, $tipo, $descrizione, $locandina)
-    {
-        $evento = Evento::find($id);
-
-        if (!$evento)
-            return null;
-
-        $evento->nome = $nome;
-        $evento->edizione = $edizione;
-        $evento->tipo = $tipo;
-        $evento->descrizione = $descrizione;
-
-        if ($locandina != null) {
-
-            $attualeLocandina = $evento->locandina;
-            // Rimuovi locandina precedente se presente
-            if ($evento->locandina && Storage::disk('public')->exists($evento->$attualeLocandina)) {
-                Storage::disk('public')->delete($evento->attualeLocandina);
-            }
-
-            $evento->locandina = $locandina;
-        }
-
-        $evento->save();
-    }
 
     // Eliminazione evento
     public function deleteEvento($id)
@@ -84,12 +58,36 @@ class DataLayer
         $evento = Evento::find($id);
 
         if ($evento) {
-            // Rimuovi la locandina dallo storage
-            if ($evento->locandina && Storage::disk('public')->exists($evento->locandina)) {
-                Storage::disk('public')->delete($evento->locandina);
+            if ($evento->locandina_path && Storage::disk('public')->exists($evento->locandina_path)) {
+                Storage::disk('public')->delete($evento->locandina_path);
             }
 
             $evento->delete();
+        }
+
+
+    }
+
+    public function updateEvento($id, $nome, $edizione, $tipo, $descrizione, $locandina = null)
+    {
+        $evento = Evento::find($id);
+
+        if ($evento) {
+            $evento->nome = $nome;
+            $evento->edizione = $edizione;
+            $evento->tipo = $tipo;
+            $evento->descrizione = $descrizione;
+
+            if ($locandina) {
+                // Rimuovi la vecchia locandina se esiste
+                if ($evento->locandina_path && Storage::disk('public')->exists($evento->locandina_path)) {
+                    Storage::disk('public')->delete($evento->locandina_path);
+                }
+
+                $evento->locandina_path = $locandina;
+            }
+
+            $evento->save();
         }
     }
 

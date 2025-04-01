@@ -13,36 +13,52 @@
 
     <div class="container mt-5">
 
-    @forelse($caspolata_list as $evento)
+        @forelse($caspolata_list as $evento)
 
-        <div class="card mt-4">
-            <div class="card-body">
-                <div class="row align-items-start">
-                    
-                    <div class="col-md-8">
-                        <h4 class="card-title">{{ $evento->nome }}</h4>
-                        <p><strong>Edizione:</strong> {{ $evento->edizione }}</p>
-                        <p><strong>Descrizione:</strong> {{ $evento->descrizione }}</p>
+            <div class="card mt-4">
+                <div class="card-body">
+                    <div class="row align-items-start">
 
-                        <a href="{{ route('caspolata.iscrizione', ['evento' => $evento->id]) }}" class="btn btn-primary mt-2">Modulo iscrizione</a>
+                        <div class="col-md-8">
+                            <h4 class="card-title">{{ $evento->nome }}</h4>
+                            <p><strong>Edizione:</strong> {{ $evento->edizione }}</p>
+                            <p><strong>Descrizione:</strong> {{ $evento->descrizione }}</p>
 
-                    </div>
+                            <a href="{{ route('caspolata.iscrizione', ['evento' => $evento->id]) }}"
+                                class="btn btn-primary mt-2">Modulo iscrizione</a>
 
-                    
-                    <div class="col-md-4 text-end">
-                        @if($evento->locandina_path)
-                            @if(Str::endsWith($evento->locandina_path, ['.jpg', '.jpeg', '.png']))
-                                <img src="{{ asset('storage/' . $evento->locandina_path) }}" alt="Locandina" class="img-thumbnail" style="max-width: 100%; height: auto;">
-                            @elseif(Str::endsWith($evento->locandina_path, ['.pdf']))
-                                <iframe src="{{ asset('storage/' . $evento->locandina_path) }}" width="100%" height="200px" style="border: none;"></iframe>
-                            @else
-                                <a href="{{ asset('storage/' . $evento->locandina_path) }}" target="_blank">Visualizza locandina</a>
+                        </div>
+
+                        <a href="{{ route('evento.edit', ['id' => $evento->id]) }}" class="btn btn-warning mt-2 ms-2">Modifica evento</a>
+
+
+                        <form action="{{ route('evento.delete', ['id' => $evento->id]) }}" method="POST" class="mt-2">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger"
+                                onclick="return confirm('Sei sicuro di voler eliminare l\'evento: {{ addslashes($evento->nome) }}?')">
+                                Elimina Caspolata
+                            </button>
+                        </form>
+
+
+
+                        <div class="col-md-4 text-end">
+                            @if($evento->locandina_path)
+                                @if(Str::endsWith($evento->locandina_path, ['.jpg', '.jpeg', '.png']))
+                                    <img src="{{ asset('storage/' . $evento->locandina_path) }}" alt="Locandina" class="img-thumbnail"
+                                        style="max-width: 100%; height: auto;">
+                                @elseif(Str::endsWith($evento->locandina_path, ['.pdf']))
+                                    <iframe src="{{ asset('storage/' . $evento->locandina_path) }}" width="100%" height="200px"
+                                        style="border: none;"></iframe>
+                                @else
+                                    <a href="{{ asset('storage/' . $evento->locandina_path) }}" target="_blank">Visualizza locandina</a>
+                                @endif
                             @endif
-                        @endif
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         @empty
             <p>Nessuna <b>CASPOLATA</b> disponibile al momento!</p>
         @endforelse

@@ -28,6 +28,18 @@
 
                     </div>
 
+                    <a href="{{ route('evento.edit', ['id' => $evento->id]) }}" class="btn btn-warning mt-2 ms-2">Modifica evento</a>
+
+
+                    <form action="{{ route('evento.delete', ['id' => $evento->id]) }}" method="POST" class="mt-2">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger"
+                                onclick="return confirm('Sei sicuro di voler eliminare l\'evento: {{ addslashes($evento->nome) }}?')">
+                                Elimina Raduno Scialpinistico
+                            </button>
+                        </form>
+
                     
                     <div class="col-md-4 text-end">
                         @if($evento->locandina_path)
