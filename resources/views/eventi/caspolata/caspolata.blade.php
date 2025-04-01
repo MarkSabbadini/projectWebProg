@@ -29,17 +29,21 @@
 
                         </div>
 
-                        <a href="{{ route('evento.edit', ['id' => $evento->id]) }}" class="btn btn-warning mt-2 ms-2">Modifica evento</a>
+                        <div class="col-md-4 text-end">
+                            <a href="{{ route('evento.edit', ['id' => $evento->id]) }}" class="btn btn-warning w-100 mb-2">
+                                Modifica evento
+                            </a>
 
+                            <form action="{{ route('evento.delete', ['id' => $evento->id]) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger w-100"
+                                    onclick="return confirm('Sei sicuro di voler eliminare l\'evento: {{ addslashes($evento->nome) }}?')">
+                                    Elimina Caspolata
+                                </button>
+                            </form>
+                        </div>
 
-                        <form action="{{ route('evento.delete', ['id' => $evento->id]) }}" method="POST" class="mt-2">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger"
-                                onclick="return confirm('Sei sicuro di voler eliminare l\'evento: {{ addslashes($evento->nome) }}?')">
-                                Elimina Caspolata
-                            </button>
-                        </form>
 
 
 
