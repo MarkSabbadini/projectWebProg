@@ -9,6 +9,7 @@ use App\Http\Controllers\IscrizioneController;
 use App\Http\Controllers\RadunoController;
 use App\Http\Controllers\CaspolataController;
 use App\Http\Controllers\UtenteController;
+use App\Http\Controllers\AuthController;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -57,7 +58,14 @@ Route::get('/calcio/squadre', [SquadraController::class, 'index'])->name('calcio
 
 ///////// LOGIN E AREA RISERVATA
 
-Route::middleware('auth')->group(function () {
+Route::get('/user/login', [AuthController::class, 'authentication'])->name('user.login');
+Route::post('/user/login', [AuthController::class, 'login'])->name('user.login');
+Route::get('/user/logout', [AuthController::class, 'logout'])->name('user.logout');
+
+Route::post('/user/register', [AuthController::class, 'registration'])->name('user.register');
+Route::get('/ajaxUser', [AuthController::class, 'ajaxCheckForEmail']);
+
+/* Route::middleware('auth')->group(function () {
     Route::get('/profilo', [UtenteController::class, 'profilo'])->name('profilo');
     Route::get('/mie-iscrizioni', [UtenteController::class, 'mieIscrizioni'])->name('iscrizione.submit');
     Route::post('/logout', function () {
@@ -65,6 +73,9 @@ Route::middleware('auth')->group(function () {
         return redirect('/')->with('success', 'Logout effettuato con successo!');
     })->name('logout');
 });
+*/
+
+
 
 
 

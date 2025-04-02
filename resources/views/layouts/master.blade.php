@@ -104,7 +104,7 @@
 
                <!-- @guest -->
                     <li class="nav-item btn">
-                        <a class="nav-link" href="{{ route('login') }}"><i class="bi bi-box-arrow-in-right me-1"></i>
+                        <a class="nav-link" href="{{ route('user.login') }}"><i class="bi bi-box-arrow-in-right me-1"></i>
                             Login</a>
                     </li>
                 <!-- @endguest -->

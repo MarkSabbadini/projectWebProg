@@ -77,6 +77,10 @@ return new class extends Migration {
             $table->timestamps();
         });
 
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('role')->default('registered_user'); // Aggiunge la colonna 'role' con un valore predefinito
+        });
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         
         // VINCOLI DI INTEGRITÀ REFERENZIALE

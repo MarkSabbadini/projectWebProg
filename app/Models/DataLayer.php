@@ -106,59 +106,50 @@ class DataLayer
         return $evento ? $evento->iscritti : null;
     }
 
-    public function listUtenti()
-    {
-        return Utente::orderBy('cognome', 'asc')->orderBy('nome', 'asc')->get();
+    public function validUser($email, $password) {
+        $user = User::where('email', $email)->first();
+        
+        if($user && Hash::check($password, $user->password))
+        {
+            return true;
+        } else {
+            return false;
+        }        
+    }
+    
+    public function addUser($name, $password, $email) {
+        $user = new User();
+        $user->name = $name;
+        $user->password = Hash::make($password);
+        $user->email = $email;
+        $user->role = "registered_user";
+        $user->email_verified_at = now();
+        $user->save();
     }
 
-    public function findUtenteById($id)
-    {
-        return Utente::find($id);
+    public function getUserID($email) {
+        $users = User::where('email',$email)->get(['id']);
+        return $users[0]->id;
     }
 
-    public function findUtenteByEmail($email)
-    {
-        return Utente::where('email', $email)->first();
+    public function getUserName($email) {
+        $users = User::where('email',$email)->get(['name']);
+        return $users[0]->name;
     }
 
-    public function addUtente($nome, $cognome, $email, $cellulare, $via, $comune, $provincia, $nazione)
-    {
-        $utente = new Utente();
-        $utente->nome = $nome;
-        $utente->cognome = $cognome;
-        $utente->email = $email;
-        $utente->cellulare = $cellulare;
-        $utente->via = $via;
-        $utente->comune = $comune;
-        $utente->provincia = $provincia;
-        $utente->nazione = $nazione;
-
-        $utente->save();
-
-        return $utente;
+    public function getUserRole($email) {
+        $users = User::where('email',$email)->get(['role']);
+        return $users[0]->role;
     }
 
-    public function editUtente($id, $dati)
-    {
-        $utente = Utente::find($id);
-
-        if ($utente) {
-            $utente->update($dati);
-        }
-
-        return $utente;
-    }
-
-    public function deleteUtente($id)
-    {
-        $utente = Utente::find($id);
-
-        if ($utente) {
-            // Se ci sono iscrizioni, potresti decidere se cancellarle oppure no
-            $utente->iscrizioni()->detach();
-            $utente->delete();
+    public function findUserByemail($email) {
+        $users = User::where('email', $email)->get();
+        
+        if (count($users) == 0) {
+            return false;
+        } else {
+            return true;
         }
     }
-
 
 }
