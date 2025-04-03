@@ -4,31 +4,67 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\DataLayer;
+use App\Models\Utente;
+use App\Models\User;
 use Illuminate\Support\Facades\Redirect;
 
 class UtenteController extends Controller
 {
     public function index() {
+      
     
         if (!isset($_SESSION['logged']) || $_SESSION['logged'] !== true) {
             return redirect()->route('user.login')->with('error', 'Devi essere loggato per accedere al profilo!');
         }
     
-        $dl = new DataLayer();
-        $userId = $_SESSION['loggedID'];
-        $utente = $dl->getUserById($userId); 
+        $utente = Utente::where('user_id', $_SESSION['loggedID'])->first();
     
         return view('utente.profilo')->with('utente', $utente);
     }
+
+    public function edit() {
+       
+        $utente = Utente::where('user_id', $_SESSION['loggedID'])->first();
     
-    public function update(Request $request){
-        
-        return Redirect::to(route('profilo'));
+        if (!$utente) {
+            return redirect()->route('profilo.create');
+        }
+    
+        return view('utente.editProfilo', compact('utente'));
     }
+    
+    public function create() {
 
-    public function store(Request $request){
-        return Redirect::to(route('profilo'));
-
+        return view('utente.creaProfilo');
     }
+    
+    public function store(Request $request) {
+    
+        $utente = new Utente();
+        $utente->user_id = $_SESSION['loggedID'];
+        $utente->nome = $_SESSION['loggedName'];
+        $utente->email = User::find($_SESSION['loggedID'])->email;
+        $utente->cognome = $request->input('cognome');
+        $utente->cellulare = $request->input('cellulare');
+        $utente->via = $request->input('via');
+        $utente->comune = $request->input('comune');
+        $utente->provincia = $request->input('provincia');
+        $utente->nazione = $request->input('nazione');
+        $utente->save();
+    
+        return redirect()->route('profilo')->with('success', 'Profilo creato!');
+    }
+    
+    public function update(Request $request) {
 
+        $utente = Utente::where('user_id', $_SESSION['loggedID'])->first();
+    
+        if ($utente) {
+            $utente->update($request->only([
+                'cognome', 'cellulare', 'via', 'comune', 'provincia', 'nazione'
+            ]));
+        }
+    
+        return redirect()->route('profilo')->with('success', 'Profilo aggiornato!');
+    }
 }

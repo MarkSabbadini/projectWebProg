@@ -35,8 +35,14 @@ class AuthController extends Controller
     public function registration(Request $request) {
         $dl = new DataLayer();
         
-        $dl->addUser($request->input('name'), $request->input('registration-password'), $request->input('registration-email'));
-       
+       $user = $dl->addUser($request->input('name'), $request->input('registration-password'), $request->input('registration-email'));
+        
+        $utente = new \App\Models\Utente();
+        $utente->nome = $request->input('name'); // o name/email prese dal form
+        $utente->email = $request->input('registration-email');
+        $utente->id_user = $user->id; // deve esistere la foreign key in `Utente`
+        $utente->save();
+        
         return Redirect::to(route('user.login'));
     }
 

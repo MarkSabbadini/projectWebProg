@@ -125,6 +125,8 @@ class DataLayer
         $user->role = "registered_user";
         $user->email_verified_at = now();
         $user->save();
+
+        return $user; // Ritorno user per compilazione
     }
 
     public function getUserById($id) {

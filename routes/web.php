@@ -68,8 +68,14 @@ Route::get('/ajaxUser', [AuthController::class, 'ajaxCheckForEmail']);
 
 Route::middleware(['authCustom'])->group(function () {
     Route::get('/profilo', [UtenteController::class, 'index'])->name('profilo');
+
+    Route::get('/profilo/create', [UtenteController::class, 'create'])->name('profilo.create');
+    Route::post('/profilo', [UtenteController::class, 'store'])->name('profilo.store');
+
+    Route::get('/profilo/edit', [UtenteController::class, 'edit'])->name('profilo.edit');
+    Route::put('/profilo', [UtenteController::class, 'update'])->name('profilo.update');
+
     Route::get('/mie-iscrizioni', [UtenteController::class, 'mieIscrizioni'])->name('iscrizione.submit');
-    
 });
 
 
