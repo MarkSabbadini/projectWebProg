@@ -127,6 +127,11 @@ class DataLayer
         $user->save();
     }
 
+    public function getUserById($id) {
+        return User::find($id);
+    }
+    
+
     public function getUserID($email) {
         $users = User::where('email',$email)->get(['id']);
         return $users[0]->id;
@@ -138,14 +143,15 @@ class DataLayer
     }
 
     public function getUserRole($email) {
-        $users = User::where('email',$email)->get(['role']);
-        return $users[0]->role;
+        $user = User::where('email', $email)->first(['role']);
+        return $user ? $user->role : null;
     }
+    
 
     public function findUserByemail($email) {
         $users = User::where('email', $email)->get();
         
-        if (count($users) == 0) {
+        if(count($users) == 0) {
             return false;
         } else {
             return true;

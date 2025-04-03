@@ -65,15 +65,14 @@ Route::get('/user/logout', [AuthController::class, 'logout'])->name('user.logout
 Route::post('/user/register', [AuthController::class, 'registration'])->name('user.register');
 Route::get('/ajaxUser', [AuthController::class, 'ajaxCheckForEmail']);
 
-/* Route::middleware('auth')->group(function () {
-    Route::get('/profilo', [UtenteController::class, 'profilo'])->name('profilo');
+
+Route::middleware(['authCustom'])->group(function () {
+    Route::get('/profilo', [UtenteController::class, 'index'])->name('profilo');
     Route::get('/mie-iscrizioni', [UtenteController::class, 'mieIscrizioni'])->name('iscrizione.submit');
-    Route::post('/logout', function () {
-        Auth::logout();
-        return redirect('/')->with('success', 'Logout effettuato con successo!');
-    })->name('logout');
+    
 });
-*/
+
+
 
 
 

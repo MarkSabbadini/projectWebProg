@@ -8,6 +8,7 @@ class frontController extends Controller
 {
     public function getHome() {
 
+        session_start();
         return view('index');
     }
 

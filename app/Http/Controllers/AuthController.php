@@ -24,10 +24,11 @@ class AuthController extends Controller
             $_SESSION['loggedID'] = $dl->getUserID($request->input('email'));
             $_SESSION['loggedName'] = $dl->getUserName($request->input('email'));
             $_SESSION['role'] = $dl->getUserRole($request->input('email'));
-            return Redirect::to(route('home'));
+
+            return Redirect::to(route('profilo'));
         } else 
         {
-            return view('errors.404')->with('message','Wrong authentication credentials!');
+            return view('errors.404')->with('message','CREDENZIALI ERRATE!');
         }
     }
 
@@ -41,7 +42,10 @@ class AuthController extends Controller
 
     public function logout() {
 
-        session_start();
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+    
         session_destroy();
         return Redirect::to(route('home'));
     }

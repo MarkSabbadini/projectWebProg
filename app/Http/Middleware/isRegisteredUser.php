@@ -14,7 +14,13 @@ class isRegisteredUser
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
     public function handle(Request $request, Closure $next): Response
-    {
+    {   
+        session_start();
+        
+        if ((!isset($_SESSION['role']))||($_SESSION['role']!='registered_user')) {
+            return response()->view('errors.404',['message' => 'REGISTRATI PER ACCEDERE A QUESTA PAGINA!']);
+        }
+
         return $next($request);
     }
 }

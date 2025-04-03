@@ -44,4 +44,13 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    // app/Models/User.php
+
+    public function profilo()
+    {
+        return $this->hasOne(Utente::class, 'user_id');
+    }
+
+
 }

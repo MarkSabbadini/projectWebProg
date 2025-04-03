@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Symfony\Component\HttpFoundation\Response;
 
 class authCustom
@@ -15,6 +16,14 @@ class authCustom
      */
     public function handle(Request $request, Closure $next): Response
     {
-        return $next($request);
+        session_start();
+
+        if(!isset($_SESSION['logged'])) { //
+
+            return response()->view('errors.404',['message' => 'PAGINA RISTERVATA AGLI AMMINISTRATORI DEL SITO!']);
+        }
+
+
+        return $next($request); // Va avanti 
     }
 }

@@ -15,6 +15,12 @@ class isAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
+        session_start();
+        
+        if ((!isset($_SESSION['role']))||($_SESSION['role']!='admin')) {
+            return response()->view('errors.404',['message' => 'PAGINA RISTERVATA AGLI AMMINISTRATORI DEL SITO!']);
+        }
+
         return $next($request);
     }
 }

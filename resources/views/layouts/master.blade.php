@@ -77,7 +77,9 @@
                         <a class="nav-link" aria-current="page" href="{{ route('contatti') }}">Contatti</a>
                     </li>
                 </ul>
-                @auth
+                
+                <!-- DROPDOWN PER UTENTE NORMALE -->
+                @if((isset($_SESSION['logged']))&&($_SESSION['role']==='registered_user'))
                     <li class="nav-item dropdown btn">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
@@ -92,7 +94,7 @@
                                 <hr class="dropdown-divider">
                             </li>
                             <li>
-                                <form method="POST" action="{{ route('logout') }}">
+                                <form method="GET" action="{{ route('user.logout') }}">
                                     @csrf
                                     <button class="dropdown-item" type="submit"><i class="bi bi-box-arrow-right me-1"></i>
                                         Logout</button>
@@ -100,7 +102,7 @@
                             </li>
                         </ul>
                     </li>
-                @endauth
+                @endif
 
                <!-- @guest -->
                     <li class="nav-item btn">
