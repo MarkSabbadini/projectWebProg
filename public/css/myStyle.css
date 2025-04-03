@@ -9,52 +9,47 @@ div#menu {
     margin-bottom: 15px;
 }
 
-div#menu ul
-{
+div#menu ul {
     margin: 0;
     padding: 0;
     list-style-type: none;
 }
 
-div#menu li
-{
-    float:right;
+div#menu li {
+    float: right;
     padding: 10px;
     border-right: 1px solid lightgrey;
-    color:black;
+    color: black;
 }
 
-div#menu a
-{
+div#menu a {
     display: block;
     padding: 5px;
     color: #000;
     text-decoration: none;
 }
 
-div#menu a:hover
-{
+div#menu a:hover {
     background-color: darkgrey;
 }
 
-div#menu li ul
-{
+div#menu li ul {
     display: none;
     padding: 10px;
 }
 
-div#menu li:hover ul
-{
+div#menu li:hover ul {
     display: block;
     position: absolute;
-    z-index:1;
-    width:160px;
-    border:1px solid black;
+    z-index: 1;
+    width: 160px;
+    border: 1px solid black;
     background: white;
 }
 
-div#menu li li { 
-    border:none; width:150px; 
+div#menu li li {
+    border: none;
+    width: 150px;
 }
 
 li a.active {
@@ -65,29 +60,31 @@ li a.active {
     CSS rules for background layout (the same for all pages)
 */
 
-body
-{
+body {
     font-family: sans-serif;
     font-size: 90%;
-    margin: 10 auto; /* Centra il contenuto della pagina rispetto al bordo esterno del corpo */
-    padding: 35px; /* Aggiunge spazio intorno al contenuto all'interno del bordo */
+    margin: 10 auto;
+    /* Centra il contenuto della pagina rispetto al bordo esterno del corpo */
+    padding: 35px;
+    /* Aggiunge spazio intorno al contenuto all'interno del bordo */
     box-sizing: border-box;
 }
 
 .logo {
-    width: 100px; /* Modifica le dimensioni se necessario */
-    height: auto; /* Per mantenere l'aspetto proporzionato */
+    width: 100px;
+    /* Modifica le dimensioni se necessario */
+    height: auto;
+    /* Per mantenere l'aspetto proporzionato */
     border-radius: 50%;
     text-decoration: none;
     transition: background-color 0.3s ease;
 }
 
 
-h1
-{
+h1 {
     border-bottom: none;
 }
-   
+
 /*
 ul {
     list-style-type: none;
@@ -118,147 +115,134 @@ li a:hover:not(.active) {
     CSS rules for tables (bokks and authors list pages)
 */
 
-table
-{
-    border-collapse:collapse;
-    width:100%;
-    margin-bottom:1em;
-    background-color:transparent;
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 1em;
+    background-color: transparent;
 }
 
-table td
-{
-    padding:1.5em;
-    vertical-align:top;
-    border-top:1px solid #dee2e6;
+table td {
+    padding: 1.5em;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
 }
 
 /*
     CSS rules for buttons
 */
 
-.bottone
-{
-    color: rgb(68,68,68);
+.bottone {
+    color: rgb(68, 68, 68);
     text-decoration: none;
     padding: .7em 1.5em;
-    border: 1px solid rgba(0,0,0,.2);
+    border: 1px solid rgba(0, 0, 0, .2);
     border-radius: 0.5em;
-    background: rgb(245,245,245) linear-gradient(#f4f4f4, #f1f1f1);
+    background: rgb(245, 245, 245) linear-gradient(#f4f4f4, #f1f1f1);
 }
 
-.bottone:hover
-{
-    color: rgb(51,51,51);
-    border: 1px solid rgb(204,204,204);
-    background: rgb(238,238,238) linear-gradient(rgb(238,238,238), rgb(224,224,224));
-    box-shadow: .2em .2em 0.2em rgba(0,0,0,.1);
+.bottone:hover {
+    color: rgb(51, 51, 51);
+    border: 1px solid rgb(204, 204, 204);
+    background: rgb(238, 238, 238) linear-gradient(rgb(238, 238, 238), rgb(224, 224, 224));
+    box-shadow: .2em .2em 0.2em rgba(0, 0, 0, .1);
 }
 
-.bottone-delete
-{
+.bottone-delete {
     color: #fff;
-    background: rgb(212,75,56);
+    background: rgb(212, 75, 56);
 }
 
-.bottone-delete:hover
-{
+.bottone-delete:hover {
     color: #fff;
-    background: rgb(232,95,76);
+    background: rgb(232, 95, 76);
     border: none;
 }
 
-.bottone-add
-{
-    color: rgb(245,245,245);
-    text-shadow: 0 -1px rgba(0,0,0,.1);
+.bottone-add {
+    color: rgb(245, 245, 245);
+    text-shadow: 0 -1px rgba(0, 0, 0, .1);
     border: none;
     background: #0c9c0d linear-gradient(#82d18d, #0c9c0d);
-    box-shadow: 0 -1px 1px #72de26 inset, 0 1px 1px #98ff98 inset, 0 0 0 1px #3caa3c, 0 2px 5px rgba(0,0,0,.3);
+    box-shadow: 0 -1px 1px #72de26 inset, 0 1px 1px #98ff98 inset, 0 0 0 1px #3caa3c, 0 2px 5px rgba(0, 0, 0, .3);
     animation: pulsate 1.2s linear infinite;
 }
 
-.bottone-add:hover
-{
-    color: rgb(245,245,245);
-    text-shadow: 0 -1px rgba(0,0,0,.1);
+.bottone-add:hover {
+    color: rgb(245, 245, 245);
+    text-shadow: 0 -1px rgba(0, 0, 0, .1);
     border: none;
     background: #0c9c0d linear-gradient(#82d18d, #0c9c0d);
-    box-shadow: inset #72de26 0 -1px 1px, inset 0 1px 1px #98ff98, #3caa3c 0 0 0 1px, rgba(0,0,0,.3) 0 2px 5px;
+    box-shadow: inset #72de26 0 -1px 1px, inset 0 1px 1px #98ff98, #3caa3c 0 0 0 1px, rgba(0, 0, 0, .3) 0 2px 5px;
     animation-play-state: paused;
 }
 
 @keyframes pulsate {
-  50% {color: #fff; text-shadow: 0 -1px rgba(0,0,0,.3), 0 0 5px #ffd, 0 0 8px #fff;}
+    50% {
+        color: #fff;
+        text-shadow: 0 -1px rgba(0, 0, 0, .3), 0 0 5px #ffd, 0 0 8px #fff;
+    }
 }
 
-p.insertItem
-{
+p.insertItem {
     text-align: right;
 }
 
 
-.form-group
-{
-    margin-top:2em;
+.form-group {
+    margin-top: 2em;
     margin-bottom: 2em;
 }
 
-input.form-control
-{
-    display:block;
-    width:98%;
-    height:3em;
-    padding:.375em;
-    font-size:.9em;
-    color:#495057;
-    background-color:#fff;
-    border:1px solid rgba(0,0,0,.2);
-    border-radius:.5em;
+input.form-control {
+    display: block;
+    width: 98%;
+    height: 3em;
+    padding: .375em;
+    font-size: .9em;
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-radius: .5em;
 }
 
-select
-{
-    display:block;
-    width:99%;
-    height:2.5em;
-    padding:.375em;
-    font-size:.9em;
-    color:#495057;
-    background-color:#fff;
-    border:1px solid rgba(0,0,0,.2);
-    border-radius:.5em;
+select {
+    display: block;
+    width: 99%;
+    height: 2.5em;
+    padding: .375em;
+    font-size: .9em;
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-radius: .5em;
 }
 
-label
-{
-    display:block;
-    align-items:center;
-    margin-bottom:0.5em;
+label {
+    display: block;
+    align-items: center;
+    margin-bottom: 0.5em;
 }
 
-.submit
-{
-    font-size:90%;
-    color: rgb(68,68,68);
+.submit {
+    font-size: 90%;
+    color: rgb(68, 68, 68);
     height: 3em;
     text-decoration: none;
     padding: .7em 2em;
-    border: 1px solid rgba(0,0,0,.2);
+    border: 1px solid rgba(0, 0, 0, .2);
     border-radius: 0.5em;
-    background: rgb(245,245,245) linear-gradient(#f4f4f4, #f1f1f1);
+    background: rgb(245, 245, 245) linear-gradient(#f4f4f4, #f1f1f1);
 }
 
-.submit:hover
-{
-    color: rgb(51,51,51);
-    border: 1px solid rgb(204,204,204);
-    background: rgb(238,238,238) linear-gradient(rgb(238,238,238), rgb(224,224,224));
-    box-shadow: .2em .2em 0.2em rgba(0,0,0,.1);
+.submit:hover {
+    color: rgb(51, 51, 51);
+    border: 1px solid rgb(204, 204, 204);
+    background: rgb(238, 238, 238) linear-gradient(rgb(238, 238, 238), rgb(224, 224, 224));
+    box-shadow: .2em .2em 0.2em rgba(0, 0, 0, .1);
 }
 
-p.confirm
-{
+p.confirm {
     margin-top: 2.5em;
     margin-bottom: 2em;
     text-align: center;
@@ -275,53 +259,73 @@ footer {
 }
 
 .social-icon {
-    font-size: 24px; /* Modifica la dimensione dell'icona */
-    margin-right: 10px; /* Aggiungi spazio tra le icone, se necessario */
+    font-size: 24px;
+    /* Modifica la dimensione dell'icona */
+    margin-right: 10px;
+    /* Aggiungi spazio tra le icone, se necessario */
     margin-left: 10px;
 }
 
 /* Stile per il link nella navbar */
 .titolo_navbar {
-    font-family: 'Arial', sans-serif; /* Cambia il font come desiderato */
-    font-size: 26px; /* Dimensione del font */
-    font-weight: bold; /* Grassetto */
-    color: #000000; /* Colore del testo */
-    text-decoration: none; /* Rimuove la sottolineatura */
-    padding: 5px 20px; /* Spaziatura interna */
-    background-color: 39accf6c; /* Colore di sfondo */
+    font-family: 'Arial', sans-serif;
+    /* Cambia il font come desiderato */
+    font-size: 26px;
+    /* Dimensione del font */
+    font-weight: bold;
+    /* Grassetto */
+    color: #000000;
+    /* Colore del testo */
+    text-decoration: none;
+    /* Rimuove la sottolineatura */
+    padding: 5px 20px;
+    /* Spaziatura interna */
+    background-color: 39accf6c;
+    /* Colore di sfondo */
     border: 2px solid #88c0e1;
-    border-radius: 5px; /* Angoli arrotondati */
-    transition: background-color 0.3s, color 0.3s; /* Transizione per il passaggio del mouse */
+    border-radius: 5px;
+    /* Angoli arrotondati */
+    transition: background-color 0.3s, color 0.3s;
+    /* Transizione per il passaggio del mouse */
 }
 
 /* Stile per il link al passaggio del mouse */
 .titolo_navbar:hover {
-    background-color: #48b1d16e; /* Cambia il colore di sfondo al passaggio del mouse */
-    color: #373636c3; /* Cambia il colore del testo al passaggio del mouse */
+    background-color: #48b1d16e;
+    /* Cambia il colore di sfondo al passaggio del mouse */
+    color: #373636c3;
+    /* Cambia il colore del testo al passaggio del mouse */
 }
 
 .myContainer {
     margin-top: 50px;
-    margin-bottom: 90px; 
+    margin-bottom: 90px;
 }
 
 ul.rosa {
-    list-style-type: none; /* Rimuove i puntini */
-    padding-left: 0; /* Rimuove il padding sinistro predefinito */
+    list-style-type: none;
+    /* Rimuove i puntini */
+    padding-left: 0;
+    /* Rimuove il padding sinistro predefinito */
 }
 
 ul.rosa li {
-    display: flex; /* Utilizza flexbox per allineare gli elementi */
-    align-items: center; /* Allinea verticalmente il contenuto */
-    margin-bottom: 5px; /* Spazio inferiore tra gli elementi, facoltativo */
+    display: flex;
+    /* Utilizza flexbox per allineare gli elementi */
+    align-items: center;
+    /* Allinea verticalmente il contenuto */
+    margin-bottom: 5px;
+    /* Spazio inferiore tra gli elementi, facoltativo */
 }
 
 ul.rosa .nomeCifra {
-    margin-left: 16px; /* Aggiunge spazio tra il numero e il nome */
+    margin-left: 16px;
+    /* Aggiunge spazio tra il numero e il nome */
 }
 
 ul.rosa .nome {
-    margin-left: 8px; /* Aggiunge spazio tra il numero e il nome */
+    margin-left: 8px;
+    /* Aggiunge spazio tra il numero e il nome */
 }
 
 .logo-small {
@@ -333,17 +337,21 @@ ul.rosa .nome {
 }
 
 .scritta-img {
-    
-        background-color: rgba(50, 76, 107, 0.65); /* Sfondo nero con 60% di opacità */
-        color: white; /* Colore del testo */
-        border-radius: 5px; /* Bordo arrotondato, opzionale */
-        margin-left: 470px;
-        margin-right: 470px;
-   
+
+    background-color: rgba(50, 76, 107, 0.65);
+    /* Sfondo nero con 60% di opacità */
+    color: white;
+    /* Colore del testo */
+    border-radius: 5px;
+    /* Bordo arrotondato, opzionale */
+    margin-left: 470px;
+    margin-right: 470px;
+
 }
 
 .navbar-blue {
-    background-color: #9ee6feb8; /* Colore di sfondo navbar */
+    background-color: #9ee6feb8;
+    /* Colore di sfondo navbar */
     --bs-navbar-color: rgba(255, 255, 255, 0.55);
     --bs-navbar-hover-color: rgba(255, 255, 255, 0.75);
     --bs-navbar-disabled-color: rgba(255, 255, 255, 0.25);
@@ -353,9 +361,27 @@ ul.rosa .nome {
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
 
-  }
+}
 
-  /* #headerCarousel {                                  CSS PER EVENTUALE CAROUSEL IMMAGINI IN HOME
+
+#password-strength {
+    height: 20px;
+    background-color: #e0e0e0;
+    margin-top: 5px;
+}
+
+#password-strength-bar {
+    height: 100%;
+    transition: width 0.3s ease;
+    font-size: 0.75rem;
+    line-height: 20px;
+    text-align: center;
+    color: #fff;
+}
+
+
+
+/* #headerCarousel {                                  CSS PER EVENTUALE CAROUSEL IMMAGINI IN HOME
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     margin-bottom: 20px;
@@ -372,7 +398,3 @@ ul.rosa .nome {
     padding: 20px;
     border-radius: 10px;
   } */
-  
-
-
-  
