@@ -6,6 +6,21 @@
     <div class="container mt-5">
         <h2 class="mb-4">Area Personale</h2>
 
+        {{-- MESSAGGI FLASH --}}
+        @if(session('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Chiudi"></button>
+            </div>
+        @endif
+
+        @if(session('error'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{ session('error') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Chiudi"></button>
+            </div>
+        @endif
+
         @if($utente)
             <div class="card shadow-sm">
                 <div class="card-body">
@@ -46,22 +61,16 @@
                         </div>
                     </div>
 
-                    @if(empty($utente->cognome) || empty($utente->cellulare))
-                        <div class="text-end mt-3">
-                            @if($utente)
-                                <a href="{{ route('profilo.edit') }}" class="btn btn-warning">Completa il tuo profilo</a>
-                            @else
-                                <a href="{{ route('profilo.create') }}" class="btn btn-warning">Crea il tuo profilo</a>
-                            @endif
-                        </div>
-                    @endif
-
+                    {{-- PULSANTE MODIFICA --}}
+                    <div class="text-end mt-3">
+                        <a href="{{ route('profilo.edit') }}" class="btn btn-primary">Modifica Profilo</a>
+                    </div>
 
                 </div>
             </div>
         @else
             <div class="alert alert-warning">
-                <p>Profilo non ancora creato. <a href="{{ route('profilo.edit') }}">Clicca qui per crearlo</a>.</p>
+                <p>Profilo non ancora creato. <a href="{{ route('profilo.create') }}">Clicca qui per crearlo</a>.</p>
             </div>
         @endif
     </div>

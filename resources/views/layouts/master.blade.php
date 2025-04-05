@@ -88,7 +88,7 @@
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li><a class="dropdown-item" href="{{ route('profilo') }}"><i
                                         class="bi bi-person-circle me-1"></i> Profilo</a></li>
-                            <li><a class="dropdown-item" href="{{ route('iscrizione.submit') }}"><i
+                            <li><a class="dropdown-item" href="{{ route('mieIscrizioni') }}"><i
                                         class="bi bi-list-check me-1"></i> Le mie iscrizioni</a></li>
                             <li>
                                 <hr class="dropdown-divider">

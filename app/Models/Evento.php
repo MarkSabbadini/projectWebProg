@@ -16,6 +16,8 @@ class Evento extends Model
     public function iscritti()
     {
         
-        return $this->belongsToMany(Utente::class,'iscrizione','id_evento','id_utente');
+        return $this->belongsToMany(Utente::class, 'iscrizione', 'id_evento', 'id_utente')
+        ->withPivot('ricevuta')
+        ->withTimestamps();
     }
 }

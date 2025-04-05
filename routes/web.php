@@ -46,6 +46,9 @@ Route::post('/evento', [EventoController::class, 'store'])->name('evento.store')
 ///////////////
 
 Route::post('/iscrizione/submit', [IscrizioneController::class, 'submit'])->name('iscrizione.submit');
+Route::get('/evento/{id}/iscritti', [EventoController::class, 'mostraIscritti'])->name('evento.iscritti');
+
+
 
 
 ///////////////
@@ -75,7 +78,7 @@ Route::middleware(['authCustom'])->group(function () {
     Route::get('/profilo/edit', [UtenteController::class, 'edit'])->name('profilo.edit');
     Route::put('/profilo', [UtenteController::class, 'update'])->name('profilo.update');
 
-    Route::get('/mie-iscrizioni', [UtenteController::class, 'mieIscrizioni'])->name('iscrizione.submit');
+    Route::get('/mieIscrizioni', [UtenteController::class, 'mieIscrizioni'])->name('mieIscrizioni');
 });
 
 

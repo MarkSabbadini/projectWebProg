@@ -12,7 +12,7 @@ return new class extends Migration {
             $table->id();
             $table->unsignedBigInteger('user_id')->unique(); // relazione con users
             $table->string('nome');
-            $table->string('cognome');
+            $table->string('cognome')->nullable();
             $table->string('email')->unique();
             $table->string('cellulare')->nullable(); 
             $table->string('via')->nullable();

@@ -41,6 +41,9 @@
                                     Elimina Raduno
                                 </button>
                             </form>
+                            <a href="{{ route('evento.iscritti', ['id' => $evento->id]) }}" class="btn btn-info w-100 mt-2">
+                                Mostra elenco iscritti
+                            </a>
                         </div>
 
                     
