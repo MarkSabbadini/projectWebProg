@@ -28,6 +28,8 @@
 
                     </div>
 
+                    @if(isset($_SESSION['logged']) && $_SESSION['role'] === 'admin')
+
                     <div class="col-md-4 text-end">
                             <a href="{{ route('evento.edit', ['id' => $evento->id]) }}" class="btn btn-warning w-100 mb-2">
                                 Modifica evento
@@ -44,7 +46,8 @@
                             <a href="{{ route('evento.iscritti', ['id' => $evento->id]) }}" class="btn btn-info w-100 mt-2">
                                 Mostra elenco iscritti
                             </a>
-                        </div>
+                    </div>
+                    @endif
 
                     
                     <div class="col-md-4 text-end">

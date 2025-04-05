@@ -2,62 +2,92 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\User;
 use App\Models\Utente;
 use App\Models\Evento;
 use App\Models\Squadra;
 use App\Models\Calciatore;
 use App\Models\Partita;
 use App\Models\Goal;
-
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
-
-        $this->populateDB();
         $this->createUsers();
+        $this->populateDB();
+    }
 
+    private function createUsers()
+    {
+        // Utenti specifici (admin e due utenti)
+        $users = collect([
+            User::factory()->create([
+                'name' => 'Marco Sabbadini',
+                'email' => 'marco.sabbadini@unibs.it',
+                'password' => Hash::make('marco'),
+                'role' => 'admin'
+            ]),
+            User::factory()->create([
+                'name' => 'Paolo Sabbadini',
+                'email' => 'paolo.sabbadini@unibs.it',
+                'password' => Hash::make('paolo'),
+                'role' => 'registered_user'
+            ]),
+            User::factory()->create([
+                'name' => 'Mark Sabbadini',
+                'email' => 'mark.sabbadiniini@unibs.it',
+                'password' => Hash::make('mark'),
+                'role' => 'registered_user'
+            ]),
+        ]);
+
+        // Aggiungiamo altri 7 utenti + profili
+        for ($i = 0; $i < 7; $i++) {
+            $users->push(User::factory()->create());
+        }
+
+        // Per ogni utente crea profilo "Utente"
+        $users->each(function ($user) {
+            Utente::factory()->create([
+                'user_id' => $user->id,
+                'nome' => $user->name,
+                'email' => $user->email,
+            ]);
+        });
     }
 
     private function populateDB()
     {
+        $utenti = Utente::all();
 
-        $utenti = Utente::factory()->count(10)->create();
-
-        // Creiamo 5 eventi 
+        // 1. Crea 5 eventi
         Evento::factory()->count(5)->create()->each(function ($evento) use ($utenti) {
-
-            // Prendo insieme casuale di utenti 
             $randomUtenti = $utenti->random(rand(1, 4));
-            $evento->iscritti()->attach($randomUtenti);
-
+            $evento->iscritti()->attach($randomUtenti->pluck('id'), [
+                'ricevuta' => 'ricevute/finta_ricevuta.pdf',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
         });
 
-        // 3. Crea 4 squadre
+        // 2. Crea 4 squadre
         $squadre = Squadra::factory()->count(4)->create();
 
-        // 4. Per ogni squadra crea da 5 a 11 calciatori
+        // 3. Per ogni squadra crea da 5 a 11 calciatori
         $squadre->each(function ($squadra) {
             Calciatore::factory()
-                ->count(rand(9, 15))
+                ->count(rand(5, 11))
                 ->create(['nome_squadra' => $squadra->nome]);
         });
 
-        // 5. Crea 3 partite con squadre casuali diverse
+        // 4. Crea 3 partite con squadre casuali
         $squadreIds = $squadre->pluck('id')->toArray();
 
         for ($i = 0; $i < 3; $i++) {
-
-            // Prendi due squadre diverse casuali
             $home = $squadreIds[array_rand($squadreIds)];
-
             do {
                 $away = $squadreIds[array_rand($squadreIds)];
             } while ($away === $home);
@@ -70,7 +100,6 @@ class DatabaseSeeder extends Seeder
                 'data' => now()->addDays(rand(1, 30)),
             ]);
 
-            // 6. Prendi alcuni calciatori a caso per assegnare goal
             $calciatori = Calciatore::inRandomOrder()->limit(rand(2, 6))->get();
 
             foreach ($calciatori as $index => $calciatore) {
@@ -81,31 +110,5 @@ class DatabaseSeeder extends Seeder
                 ]);
             }
         }
-    }
-
-    private function createUsers()
-    {
-
-        User::factory()->create([
-            'name' => 'Marco Sabbadini',
-            'email' => 'marco.sabbadini@unibs.it',
-            'password' => 'marco',
-            'role' => 'admin'
-
-        ]);
-
-        User::factory()->create([
-            'name' => 'Paolo Sabbadini',
-            'email' => 'paolo.sabbadini@unibs.it',
-            'password' => 'paolo',
-            'role' => 'registered_user'
-        ]);
-
-        User::factory()->create([
-            'name' => 'Mark Sabbadini',
-            'email' => 'mark.sabbadiniini@unibs.it',
-            'password' => 'mark',
-            'role' => 'registered_user'
-        ]);
     }
 }

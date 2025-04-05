@@ -69,17 +69,19 @@
                             <li><a class="dropdown-item" href="{{ route('raduno.index') }}">Raduno Scialpinistico</a>
                             </li>
                             <li><a class="dropdown-item" href="{{ route('caspolata.index') }}">Caspolata</a></li>
-                            <li><a class="dropdown-item" href="{{ route('evento.create') }}">Inserisci un nuovo
-                                    evento</a></li>
+                            @if(isset($_SESSION['logged']) && $_SESSION['role'] === 'admin')
+                                <li><a class="dropdown-item" href="{{ route('evento.create') }}">Inserisci un nuovo
+                                        evento</a></li>
+                            @endif
                         </ul>
                     </li>
                     <li class="nav-item btn">
                         <a class="nav-link" aria-current="page" href="{{ route('contatti') }}">Contatti</a>
                     </li>
                 </ul>
-                
+
                 <!-- DROPDOWN PER UTENTE NORMALE -->
-                @if((isset($_SESSION['logged']))&&($_SESSION['role']==='registered_user'))
+                @if((isset($_SESSION['logged'])) && ($_SESSION['role'] === 'registered_user'))
                     <li class="nav-item dropdown btn">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
@@ -104,11 +106,11 @@
                     </li>
                 @endif
 
-               <!-- @guest -->
-                    <li class="nav-item btn">
-                        <a class="nav-link" href="{{ route('user.login') }}"><i class="bi bi-box-arrow-in-right me-1"></i>
-                            Login</a>
-                    </li>
+                <!-- @guest -->
+                <li class="nav-item btn">
+                    <a class="nav-link" href="{{ route('user.login') }}"><i class="bi bi-box-arrow-in-right me-1"></i>
+                        Login</a>
+                </li>
                 <!-- @endguest -->
 
             </div>
