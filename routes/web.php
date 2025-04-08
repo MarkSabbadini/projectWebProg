@@ -95,18 +95,18 @@ Route::group(['middleware' => ['authCustom', 'isRegisteredUser']], function () {
     Route::get('/iscrizione/raduno/{evento}', [IscrizioneController::class, 'formRaduno'])->name('raduno.iscrizione');
 
     Route::post('/iscrizione/submit', [IscrizioneController::class, 'submit'])->name('iscrizione.submit');
-    Route::get('/evento/{id}/iscritti', [EventoController::class, 'mostraIscritti'])->name('evento.iscritti');
-
-    Route::get('/raduno', [RadunoController::class, 'index'])->name('raduno.index');
 
     Route::get('/caspolata', [CaspolataController::class, 'index'])->name('caspolata.index');
 
 });
 
+Route::get('/raduno', [RadunoController::class, 'index'])->name('raduno.index');
+
 // ROTTE ADMIN
 
 Route::group(['middleware' => ['authCustom', 'isAdmin']], function () {
 
+    Route::get('/evento/{id}/iscritti', [EventoController::class, 'mostraIscritti'])->name('evento.iscritti');
 
     Route::get('/evento/crea', [EventoController::class, 'create'])->name('evento.create');
     Route::delete('/evento/{id}', [EventoController::class, 'deleteEvento'])->name('evento.delete');

@@ -21,12 +21,11 @@ class frontController extends Controller
     public function getDirettivo() {
 
         session_start();
-        return view('direttivo');
+        return  view('direttivo');
     }
 
     public function getContatti() {
 
-        session_start();
         return view('contatti');
     }
 

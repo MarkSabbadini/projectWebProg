@@ -115,6 +115,13 @@
                     </li>
                 @endif
                
+                @if(isset($_SESSION['logged']) && $_SESSION['role'] === 'admin')
+                    <li class="nav-item btn">
+                        <a class="nav-link" href="{{ route('user.logout') }}">
+                            <i class="bi bi-box-arrow-in-right me-1"></i> Logout
+                        </a>
+                    </li>
+                @endif
 
             </div>
         </div>

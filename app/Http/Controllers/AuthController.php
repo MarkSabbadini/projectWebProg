@@ -48,9 +48,7 @@ class AuthController extends Controller
 
     public function logout() {
 
-        if (session_status() === PHP_SESSION_NONE) {
-            session_start();
-        }
+        session_start();
     
         session_destroy();
         return Redirect::to(route('home'));
