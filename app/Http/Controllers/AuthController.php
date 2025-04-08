@@ -40,7 +40,7 @@ class AuthController extends Controller
         $utente = new \App\Models\Utente();
         $utente->nome = $request->input('name'); // o name/email prese dal form
         $utente->email = $request->input('registration-email');
-        $utente->user_id = $user->id; // deve esistere la foreign key in `Utente`
+        $utente->user_id = $user->id; 
         $utente->save();
         
         return Redirect::to(route('user.login'));
