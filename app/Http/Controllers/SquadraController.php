@@ -13,6 +13,7 @@ class SquadraController extends Controller
     
     public function index()
     {
+        session_start();
         // Recupera tutte le squadre con i relativi calciatori
         $squadre = Squadra::with('calciatori')->get();
 

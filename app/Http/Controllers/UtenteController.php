@@ -13,7 +13,6 @@ class UtenteController extends Controller
     public function index()
     {
 
-
         if (!isset($_SESSION['logged']) || $_SESSION['logged'] !== true) {
             return redirect()->route('user.login')->with('error', 'Devi essere loggato per accedere al profilo!');
         }

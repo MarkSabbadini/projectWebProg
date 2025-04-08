@@ -54,7 +54,7 @@
                             Calcio
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{ route('calcio.squadre') }}">Le nostre squadre</a></li>
+                            <li><a class="dropdown-item" href="{{ route('squadre') }}">Le nostre squadre</a></li>
                             <li><a class="dropdown-item" href="{{ route('risultati') }}">Risultati e classifiche</a>
                             </li>
                             <li><a class="dropdown-item" href="{{ route('torneo') }}">Torneo estivo</a></li>
@@ -106,12 +106,15 @@
                     </li>
                 @endif
 
-                <!-- @guest -->
-                <li class="nav-item btn">
-                    <a class="nav-link" href="{{ route('user.login') }}"><i class="bi bi-box-arrow-in-right me-1"></i>
-                        Login</a>
-                </li>
-                <!-- @endguest -->
+                
+                @if(!isset($_SESSION['logged']))
+                    <li class="nav-item btn">
+                        <a class="nav-link" href="{{ route('user.login') }}">
+                            <i class="bi bi-box-arrow-in-right me-1"></i> Login
+                        </a>
+                    </li>
+                @endif
+               
 
             </div>
         </div>

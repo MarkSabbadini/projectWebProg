@@ -24,13 +24,13 @@ class AuthController extends Controller
             $_SESSION['loggedID'] = $dl->getUserID($request->input('email'));
             $_SESSION['loggedName'] = $dl->getUserName($request->input('email'));
             $_SESSION['role'] = $dl->getUserRole($request->input('email'));
-
-            return Redirect::to(route('profilo'));
+            return Redirect::to(route('home'));
         } else 
         {
-            return view('errors.404')->with('message','CREDENZIALI ERRATE!');
+            return view('errors.404')->with('message','Wrong authentication credentials!');
         }
     }
+
 
     public function registration(Request $request) {
         $dl = new DataLayer();
@@ -54,5 +54,18 @@ class AuthController extends Controller
     
         session_destroy();
         return Redirect::to(route('home'));
+    }
+
+    public function ajaxCheckForEmail(Request $request)
+    {
+        $dl = new DataLayer();
+        
+        if($dl->findUserByEmail($request->input('email')))
+        {
+            $response = array('found'=>true);
+        } else {
+            $response = array('found'=>false);
+        }
+        return response()->json($response);
     }
 }

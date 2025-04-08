@@ -145,12 +145,13 @@ class DataLayer
     }
 
     public function getUserRole($email) {
-        $user = User::where('email', $email)->first(['role']);
-        return $user ? $user->role : null;
+        $users = User::where('email',$email)->get(['role']);
+        return $users[0]->role;
     }
     
 
     public function findUserByemail($email) {
+        
         $users = User::where('email', $email)->get();
         
         if(count($users) == 0) {
