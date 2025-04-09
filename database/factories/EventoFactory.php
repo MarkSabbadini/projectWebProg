@@ -21,7 +21,7 @@ class EventoFactory extends Factory
         return [
             'nome' => $this->faker->firstName(), 
             'descrizione' => $this->faker->sentence(1,5),
-            'edizione' => $this->faker->year(),
+            'data' => $this->faker->date(),
             'tipo' => $this->faker->randomElement(['Raduno', 'Caspolata']),
             'locandina_path' =>  $this->faker->url()  
         ];

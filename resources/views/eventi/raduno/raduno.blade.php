@@ -13,57 +13,71 @@
 
     <div class="container mt-5">
 
-    @forelse($raduno_list as $evento)
+        @forelse($raduno_list as $evento)
 
-        <div class="card mt-4">
-            <div class="card-body">
-                <div class="row align-items-start">
-                    
-                    <div class="col-md-8">
-                        <h4 class="card-title">{{ $evento->nome }}</h4>
-                        <p><strong>Edizione:</strong> {{ $evento->edizione }}</p>
-                        <p><strong>Descrizione:</strong> {{ $evento->descrizione }}</p>
+            <div class="card mt-4">
+                <div class="card-body">
+                    <div class="row align-items-start">
 
-                        <a href="{{ route('raduno.iscrizione', ['evento' => $evento->id]) }}" class="btn btn-primary mt-2">Modulo iscrizione</a>
+                        <div class="col-md-8">
+                            <h4 class="card-title">{{ $evento->nome }}</h4>
+                            <p><strong>Data:</strong>
+                                {{ $evento->data ? \Carbon\Carbon::parse($evento->data)->format('d-m-Y') : 'N.D.' }}
+                            </p>
+                            <p><strong>Descrizione:</strong> {{ $evento->descrizione }}</p>
 
-                    </div>
+                            @if(isset($_SESSION['logged']) && $_SESSION['role'] === 'registered_user')
+                                                @php
+                                                    $eventoData = \Carbon\Carbon::parse($evento->data);
+                                                @endphp
 
-                    @if(isset($_SESSION['logged']) && $_SESSION['role'] === 'admin')
-
-                    <div class="col-md-4 text-end">
-                            <a href="{{ route('evento.edit', ['id' => $evento->id]) }}" class="btn btn-warning w-100 mb-2">
-                                Modifica evento
-                            </a>
-
-                            <form action="{{ route('evento.delete', ['id' => $evento->id]) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger w-100"
-                                    onclick="return confirm('Sei sicuro di voler eliminare l\'evento: {{ addslashes($evento->nome) }}?')">
-                                    Elimina Raduno
-                                </button>
-                            </form>
-                            <a href="{{ route('evento.iscritti', ['id' => $evento->id]) }}" class="btn btn-info w-100 mt-2">
-                                Mostra elenco iscritti
-                            </a>
-                    </div>
-                    @endif
-
-                    
-                    <div class="col-md-4 text-end">
-                        @if($evento->locandina_path)
-                            @if(Str::endsWith($evento->locandina_path, ['.jpg', '.jpeg', '.png']))
-                                <img src="{{ asset('storage/' . $evento->locandina_path) }}" alt="Locandina" class="img-thumbnail" style="max-width: 100%; height: auto;">
-                            @elseif(Str::endsWith($evento->locandina_path, ['.pdf']))
-                                <iframe src="{{ asset('storage/' . $evento->locandina_path) }}" width="100%" height="200px" style="border: none;"></iframe>
-                            @else
-                                <a href="{{ asset('storage/' . $evento->locandina_path) }}" target="_blank">Visualizza locandina</a>
+                                                @if($eventoData->isFuture() || $eventoData->isToday())
+                                                    <a href="{{ route('raduno.iscrizione', ['evento' => $evento->id]) }}"
+                                                        class="btn btn-primary mt-2">Modulo iscrizione</a>
+                                                @else
+                                                    <button class="btn btn-secondary mt-2" disabled>Iscrizione chiusa</button>
+                                                @endif
                             @endif
+                        </div>
+
+                        @if(isset($_SESSION['logged']) && $_SESSION['role'] === 'admin')
+
+                            <div class="col-md-4 text-end">
+                                <a href="{{ route('evento.edit', ['id' => $evento->id]) }}" class="btn btn-warning w-100 mb-2">
+                                    Modifica evento
+                                </a>
+
+                                <form action="{{ route('evento.delete', ['id' => $evento->id]) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger w-100"
+                                        onclick="return confirm('Sei sicuro di voler eliminare l\'evento: {{ addslashes($evento->nome) }}?')">
+                                        Elimina Raduno
+                                    </button>
+                                </form>
+                                <a href="{{ route('evento.iscritti', ['id' => $evento->id]) }}" class="btn btn-info w-100 mt-2">
+                                    Mostra elenco iscritti
+                                </a>
+                            </div>
                         @endif
+
+
+                        <div class="col-md-4 text-end">
+                            @if($evento->locandina_path)
+                                @if(Str::endsWith($evento->locandina_path, ['.jpg', '.jpeg', '.png']))
+                                    <img src="{{ asset('storage/' . $evento->locandina_path) }}" alt="Locandina" class="img-thumbnail"
+                                        style="max-width: 100%; height: auto;">
+                                @elseif(Str::endsWith($evento->locandina_path, ['.pdf']))
+                                    <iframe src="{{ asset('storage/' . $evento->locandina_path) }}" width="100%" height="200px"
+                                        style="border: none;"></iframe>
+                                @else
+                                    <a href="{{ asset('storage/' . $evento->locandina_path) }}" target="_blank">Visualizza locandina</a>
+                                @endif
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         @empty
             <p>Nessun <b>RADUNO SCIALPINISTICO</b> disponibile al momento!</p>
         @endforelse

@@ -96,11 +96,12 @@ Route::group(['middleware' => ['authCustom', 'isRegisteredUser']], function () {
 
     Route::post('/iscrizione/submit', [IscrizioneController::class, 'submit'])->name('iscrizione.submit');
 
-    Route::get('/caspolata', [CaspolataController::class, 'index'])->name('caspolata.index');
 
 });
 
 Route::get('/raduno', [RadunoController::class, 'index'])->name('raduno.index');
+Route::get('/caspolata', [CaspolataController::class, 'index'])->name('caspolata.index');
+
 
 // ROTTE ADMIN
 

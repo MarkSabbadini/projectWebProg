@@ -21,34 +21,46 @@
 
                         <div class="col-md-8">
                             <h4 class="card-title">{{ $evento->nome }}</h4>
-                            <p><strong>Edizione:</strong> {{ $evento->edizione }}</p>
+                            <p><strong>Data:</strong>
+                                {{ $evento->data ? \Carbon\Carbon::parse($evento->data)->format('d-m-Y') : 'N.D.' }}
+                            </p>
                             <p><strong>Descrizione:</strong> {{ $evento->descrizione }}</p>
 
-                            <a href="{{ route('caspolata.iscrizione', ['evento' => $evento->id]) }}"
-                                class="btn btn-primary mt-2">Modulo iscrizione</a>
+                            @if(isset($_SESSION['logged']) && $_SESSION['role'] === 'registered_user')
+                                                @php
+                                                    $eventoData = \Carbon\Carbon::parse($evento->data);
+                                                @endphp
+
+                                                @if($eventoData->isFuture() || $eventoData->isToday())
+                                                    <a href="{{ route('caspolata.iscrizione', ['evento' => $evento->id]) }}"
+                                                        class="btn btn-primary mt-2">Modulo iscrizione</a>
+                                                @else
+                                                    <button class="btn btn-secondary mt-2" disabled>Iscrizione chiusa</button>
+                                                @endif
+                            @endif
 
                         </div>
 
                         @if(isset($_SESSION['logged']) && $_SESSION['role'] === 'admin')
 
-                        <div class="col-md-4 text-end">
-                            <a href="{{ route('evento.edit', ['id' => $evento->id]) }}" class="btn btn-warning w-100 mb-2">
-                                Modifica evento
-                            </a>
+                            <div class="col-md-4 text-end">
+                                <a href="{{ route('evento.edit', ['id' => $evento->id]) }}" class="btn btn-warning w-100 mb-2">
+                                    Modifica evento
+                                </a>
 
-                            <form action="{{ route('evento.delete', ['id' => $evento->id]) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger w-100"
-                                    onclick="return confirm('Sei sicuro di voler eliminare l\'evento: {{ addslashes($evento->nome) }}?')">
-                                    Elimina Caspolata
-                                </button>
-                            </form>
+                                <form action="{{ route('evento.delete', ['id' => $evento->id]) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger w-100"
+                                        onclick="return confirm('Sei sicuro di voler eliminare l\'evento: {{ addslashes($evento->nome) }}?')">
+                                        Elimina Caspolata
+                                    </button>
+                                </form>
 
-                            <a href="{{ route('evento.iscritti', ['id' => $evento->id]) }}" class="btn btn-info w-100 mt-2">
-                                Mostra elenco iscritti
-                            </a>
-                        </div>
+                                <a href="{{ route('evento.iscritti', ['id' => $evento->id]) }}" class="btn btn-info w-100 mt-2">
+                                    Mostra elenco iscritti
+                                </a>
+                            </div>
 
                         @endif
 

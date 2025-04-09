@@ -98,7 +98,7 @@
                     }
 
                     // effettua chiamata AJAX per verificare che l'email dell'utente non sia già presente nel DB
-                    /* event.preventDefault(); // Impedisce preventivamente l'invio del modulo prima del controllo
+                    event.preventDefault(); // Impedisce preventivamente l'invio del modulo prima del controllo
                     $.ajax({
 
                         type: 'GET',
@@ -112,17 +112,18 @@
                             if (data.found)
                             {
                                 error = true;
-                                $("#invalid-registrationEmail").text("L'email esiste già nel database.");
+                                $("#invalid-registrationEmail").text("ATTENZIONE! Indirizzo e-mail già utilizzato per la registrazione");
                             } else {
                                 $("form")[1].submit();
                             }
                         }
-                    }); */
+                    }); 
                 }
 
 
             });
-
+            
+            // BARRA CONTROLLO PASSWORD
             $("input[name='registration-password']").on("input", function () {
                     var password = $(this).val();
                     var strengthBar = $("#password-strength-bar");
@@ -154,6 +155,8 @@
                 });
         });
     </script>
+
+    
     <div class="container-fluid">
         <div class="row">
             <div>

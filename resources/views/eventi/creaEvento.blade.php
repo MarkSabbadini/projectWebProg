@@ -40,10 +40,9 @@
                 <label for="yearSelect" class="col-form-label">Anno</label>
             </div>
             <div class="col-auto">
-                <select class="form-select" id="yearSelect" name="edizione" required>
-                    <option value="" disabled selected>-- Seleziona un anno --</option>
-                </select>
-            </div>
+            <input type="date" class="form-control" id="dataEvento" name="data" required>
+</div>
+
         </div>
 
         <!-- Seconda riga per la descrizione -->

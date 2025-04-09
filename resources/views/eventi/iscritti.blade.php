@@ -4,7 +4,7 @@
 
 @section('body')
 <div class="container mt-5">
-    <h2>Iscritti alla {{ $evento->nome }} - Edizione {{ $evento->edizione }}</h2>
+    <h2>Iscritti alla {{ $evento->nome }} del {{ $evento->data }}</h2>
 
     @if($evento->iscritti->count())
         <table class="table mt-4">

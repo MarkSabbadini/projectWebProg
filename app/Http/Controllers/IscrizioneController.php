@@ -87,5 +87,6 @@ class IscrizioneController extends Controller
         return redirect()->back()->with('success', 'Iscrizione completata con successo!');
     }
     
+    
 
 }

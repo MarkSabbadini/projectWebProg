@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Redirect;
 class CaspolataController extends Controller
 {
     public function index(){
+
+        session_start();
         $dl = new DataLayer();
         $eventi = $dl->listCaspolate();
 

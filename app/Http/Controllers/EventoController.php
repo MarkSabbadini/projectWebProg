@@ -20,7 +20,7 @@ class EventoController extends Controller
     {
         $validated = $request->validate([
             'nome' => 'required|string|max:255',
-            'edizione' => 'required|integer',
+            'data' => 'required',
             'tipo' => 'required|in:Raduno,Caspolata',
             'descrizione' => 'nullable|string|max:1000',
             // 'locandina_path' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
@@ -37,7 +37,7 @@ class EventoController extends Controller
 
         $dl->addEvento(
             $validated['nome'],
-            $validated['edizione'],
+            $request['data'],
             $validated['tipo'],
             $validated['descrizione'],
             $path
@@ -64,7 +64,6 @@ class EventoController extends Controller
     {
         $validated = $request->validate([
             'nome' => 'required|string|max:255',
-            'edizione' => 'required|integer',
             'descrizione' => 'nullable|string|max:1000',
         ]);
 
@@ -82,14 +81,19 @@ class EventoController extends Controller
         $dl->updateEvento(
             $id,
             $validated['nome'],
-            $validated['edizione'],
+            $request['data'],
             $tipo,
             $validated['descrizione'],
             $locandina_path
         );
 
-        return redirect()->back()->with('success', 'Evento aggiornato con successo!');
-    }
+        
+        if ($evento->tipo === 'Raduno') {
+            return redirect()->route('raduno.index');
+        } else {
+            return redirect()->route('caspolata.index');
+        }
+            }
 
     public function mostraIscritti($id)
     {
@@ -97,6 +101,8 @@ class EventoController extends Controller
 
         return view('eventi.iscritti', compact('evento'));
     }
+
+    
 
 
 

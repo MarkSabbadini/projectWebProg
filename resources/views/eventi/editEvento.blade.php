@@ -16,10 +16,12 @@
             </div>
 
             <div class="mb-3">
-                <label>Edizione</label>
-                <input type="number" name="edizione" class="form-control" value="{{ old('edizione', $evento->edizione) }}"
+                <label for="data_evento">Data evento</label>
+                <input type="date" name="data" id="data_evento" class="form-control"
+                     value="{{ old('data', \Carbon\Carbon::parse($evento->data)->format('Y-m-d')) }}"
                     required>
             </div>
+
 
             <div class="mb-3">
                 <label>Tipo</label>

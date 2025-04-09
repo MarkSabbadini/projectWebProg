@@ -63,7 +63,7 @@
 
                     {{-- PULSANTE MODIFICA --}}
                     <div class="text-end mt-3">
-                        <a href="{{ route('profilo.edit') }}" class="btn btn-primary">Modifica Profilo</a>
+                        <a href="{{ route('profilo.edit') }}" class="btn btn-primary">Completa o modifica profilo</a>
                     </div>
 
                 </div>

@@ -38,12 +38,12 @@ class DataLayer
     }
 
     // Inserimento nuovo evento
-    public function addEvento($nome, $edizione, $tipo, $descrizione, $locandina)
+    public function addEvento($nome, $data, $tipo, $descrizione, $locandina)
     {
         $evento = new Evento;
 
         $evento->nome = $nome;
-        $evento->edizione = $edizione;
+        $evento->data = $data;
         $evento->tipo = $tipo;
         $evento->descrizione = $descrizione;
         $evento->locandina_path = $locandina;
@@ -68,13 +68,13 @@ class DataLayer
 
     }
 
-    public function updateEvento($id, $nome, $edizione, $tipo, $descrizione, $locandina = null)
+    public function updateEvento($id, $nome, $data, $tipo, $descrizione, $locandina = null)
     {
         $evento = Evento::find($id);
 
         if ($evento) {
             $evento->nome = $nome;
-            $evento->edizione = $edizione;
+            $evento->data = $data;
             $evento->tipo = $tipo;
             $evento->descrizione = $descrizione;
 
@@ -92,10 +92,10 @@ class DataLayer
     }
 
     // Verifica duplicati (nome + edizione)
-    public function eventoExists($nome, $edizione)
+    public function eventoExists($nome, $data)
     {
         return Evento::where('nome', $nome)
-            ->where('edizione', $edizione)
+            ->where('data',  $data)
             ->exists();
     }
 

@@ -26,6 +26,7 @@ class frontController extends Controller
 
     public function getContatti() {
 
+        session_start();
         return view('contatti');
     }
 
