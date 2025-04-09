@@ -106,7 +106,7 @@
                     </li>
                 @endif
 
-                
+
                 @if(!isset($_SESSION['logged']))
                     <li class="nav-item btn">
                         <a class="nav-link" href="{{ route('user.login') }}">
@@ -114,7 +114,7 @@
                         </a>
                     </li>
                 @endif
-               
+
                 @if(isset($_SESSION['logged']) && $_SESSION['role'] === 'admin')
                     <li class="nav-item btn">
                         <a class="nav-link" href="{{ route('user.logout') }}">
@@ -123,6 +123,13 @@
                     </li>
                 @endif
 
+                <ul class="navbar-nav">
+                    @if(isset($_SESSION['logged']) && $_SESSION['role'] === 'registered_user')
+                        <li class="nav-item"><i>Benvenuto {{ $_SESSION['loggedName'] }}</i></li>
+                    @elseif(isset($_SESSION['logged']) && $_SESSION['role'] === 'admin')
+                        <li class="nav-item"><i>Benvenuto admin {{ $_SESSION['loggedName'] }}</i></li>
+                    @endif
+                </ul>
             </div>
         </div>
     </nav>
