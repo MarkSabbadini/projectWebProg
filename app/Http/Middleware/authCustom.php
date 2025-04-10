@@ -20,7 +20,7 @@ class authCustom
 
         if(!isset($_SESSION['logged'])) { //
 
-            return response()->view('errors.404',['message' => 'PAGINA RISTERVATA AGLI AMMINISTRATORI DEL SITO!']);
+            return response()->view('errors.404',['message' => 'PAGINA RISERVATA AGLI UTENTI REGISTRATI!']);
         }
 
 

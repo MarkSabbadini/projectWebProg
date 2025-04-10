@@ -9,13 +9,13 @@
 
 @section('body')
 
-@if(session('success'))
+    @if(session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
         </div>
     @endif
 
-        @if($errors->any())
+    @if($errors->any())
         <div class="alert alert-danger">
             <ul>
                 @foreach($errors->all() as $error)
@@ -40,8 +40,8 @@
                 <label for="yearSelect" class="col-form-label">Anno</label>
             </div>
             <div class="col-auto">
-            <input type="date" class="form-control" id="dataEvento" name="data" required>
-</div>
+                <input type="date" class="form-control" id="dataEvento" name="data" required>
+            </div>
 
         </div>
 
@@ -87,6 +87,29 @@
             </div>
         </div>
     </form>
+
+    <script>
+        $('#dataEvento').on('change', function () {
+            $.ajax({
+                url: '/ajax/check-event-date',
+                method: 'POST',
+                data: {
+                    data: $(this).val(),
+                    _token: '{{ csrf_token() }}'
+                },
+                success: function (response) {
+                    if (response.found) {
+                        alert('⚠️ Esiste già un evento in questa data!');
+                        $('#dataEvento').val('');
+                    }
+                },
+                error: function (xhr) {
+                    console.error('Errore AJAX:', xhr);
+                }
+            });
+        });
+    </script>
+
 
 
     <!-- Script per popolare dinamicamente la select degli anni -->

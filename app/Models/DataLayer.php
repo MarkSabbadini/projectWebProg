@@ -97,7 +97,7 @@ class DataLayer
     public function eventoExists($nome, $data)
     {
         return Evento::where('nome', $nome)
-            ->where('data',  $data)
+            ->where('data', $data)
             ->exists();
     }
 
@@ -108,18 +108,19 @@ class DataLayer
         return $evento ? $evento->iscritti : null;
     }
 
-    public function validUser($email, $password) {
+    public function validUser($email, $password)
+    {
         $user = User::where('email', $email)->first();
-        
-        if($user && Hash::check($password, $user->password))
-        {
+
+        if ($user && Hash::check($password, $user->password)) {
             return true;
         } else {
             return false;
-        }        
+        }
     }
-    
-    public function addUser($name, $password, $email) {
+
+    public function addUser($name, $password, $email)
+    {
         $user = new User();
         $user->name = $name;
         $user->password = Hash::make($password);
@@ -131,23 +132,27 @@ class DataLayer
         return $user; // Ritorno user per compilazione
     }
 
-    public function getUserById($id) {
+    public function getUserById($id)
+    {
         return User::find($id);
     }
-    
 
-    public function getUserID($email) {
-        $users = User::where('email',$email)->get(['id']);
+
+    public function getUserID($email)
+    {
+        $users = User::where('email', $email)->get(['id']);
         return $users[0]->id;
     }
 
-    public function getUserName($email) {
-        $users = User::where('email',$email)->get(['name']);
+    public function getUserName($email)
+    {
+        $users = User::where('email', $email)->get(['name']);
         return $users[0]->name;
     }
 
-    public function getUserRole($email) {
-        $users = User::where('email',$email)->get(['role']);
+    public function getUserRole($email)
+    {
+        $users = User::where('email', $email)->get(['role']);
         return $users[0]->role;
     }
 
@@ -156,19 +161,26 @@ class DataLayer
         return DB::table('iscrizione')
             ->where('id_utente', $userId)
             ->pluck('id_evento')   // restituisce solo l'elenco degli ID evento
-            ->toArray();          
+            ->toArray();
     }
-    
 
-    public function findUserByemail($email) {
-        
+
+    public function findUserByemail($email)
+    {
+
         $users = User::where('email', $email)->get();
-        
-        if(count($users) == 0) {
+
+        if (count($users) == 0) {
             return false;
         } else {
             return true;
         }
     }
+
+    public function eventoInData($data)
+    {
+        return Evento::whereDate('data', $data)->exists();
+    }
+
 
 }

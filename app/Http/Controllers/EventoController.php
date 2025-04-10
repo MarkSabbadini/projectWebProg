@@ -87,13 +87,13 @@ class EventoController extends Controller
             $locandina_path
         );
 
-        
+
         if ($evento->tipo === 'Raduno') {
             return redirect()->route('raduno.index');
         } else {
             return redirect()->route('caspolata.index');
         }
-            }
+    }
 
     public function mostraIscritti($id)
     {
@@ -102,7 +102,21 @@ class EventoController extends Controller
         return view('eventi.iscritti', compact('evento'));
     }
 
-    
+    public function ajaxCheckEventDate(Request $request)
+    {
+        $dl = new DataLayer();
+
+        if ($dl->eventoInData($request->input('data'))) {
+            $response = ['found' => true];
+        } else {
+            $response = ['found' => false];
+        }
+
+        return response()->json($response);
+    }
+
+
+
 
 
 

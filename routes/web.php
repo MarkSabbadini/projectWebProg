@@ -116,6 +116,9 @@ Route::group(['middleware' => ['authCustom', 'isAdmin']], function () {
     Route::get('/evento/{id}/edit', [EventoController::class, 'editEvento'])->name('evento.edit');
     Route::put('/evento/{id}', [EventoController::class, 'updateEvento'])->name('evento.update');
     Route::post('/evento', [EventoController::class, 'store'])->name('evento.store');
+
+    Route::post('/ajax/check-event-date', [EventoController::class, 'ajaxCheckEventDate']);
+
     
 
 });
