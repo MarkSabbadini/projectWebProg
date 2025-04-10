@@ -95,6 +95,8 @@ Route::group(['middleware' => ['authCustom', 'isRegisteredUser']], function () {
     Route::get('/iscrizione/raduno/{evento}', [IscrizioneController::class, 'formRaduno'])->name('raduno.iscrizione');
 
     Route::post('/iscrizione/submit', [IscrizioneController::class, 'submit'])->name('iscrizione.submit');
+    Route::delete('/iscrizione/{evento_id}', [IscrizioneController::class, 'destroy'])->name('iscrizione.delete');
+
 
 
 });
@@ -114,6 +116,7 @@ Route::group(['middleware' => ['authCustom', 'isAdmin']], function () {
     Route::get('/evento/{id}/edit', [EventoController::class, 'editEvento'])->name('evento.edit');
     Route::put('/evento/{id}', [EventoController::class, 'updateEvento'])->name('evento.update');
     Route::post('/evento', [EventoController::class, 'store'])->name('evento.store');
+    
 
 });
 

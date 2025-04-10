@@ -125,9 +125,9 @@
 
                 <ul class="navbar-nav">
                     @if(isset($_SESSION['logged']) && $_SESSION['role'] === 'registered_user')
-                        <li class="nav-item"><i>Benvenuto {{ $_SESSION['loggedName'] }}</i></li>
+                        <li class="nav-item ms-3"><i>Benvenuto {{ $_SESSION['loggedName'] }}</i></li>
                     @elseif(isset($_SESSION['logged']) && $_SESSION['role'] === 'admin')
-                        <li class="nav-item"><i>Benvenuto admin {{ $_SESSION['loggedName'] }}</i></li>
+                        <li class="nav-item ms-3"><i>Benvenuto admin {{ $_SESSION['loggedName'] }}</i></li>
                     @endif
                 </ul>
             </div>

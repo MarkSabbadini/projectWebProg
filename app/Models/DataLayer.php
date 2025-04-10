@@ -4,6 +4,8 @@ namespace App\Models;
 use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
+
 
 
 
@@ -147,6 +149,14 @@ class DataLayer
     public function getUserRole($email) {
         $users = User::where('email',$email)->get(['role']);
         return $users[0]->role;
+    }
+
+    public function getEventiIscrittiUtente($userId)
+    {
+        return DB::table('iscrizione')
+            ->where('id_utente', $userId)
+            ->pluck('id_evento')   // restituisce solo l'elenco degli ID evento
+            ->toArray();          
     }
     
 

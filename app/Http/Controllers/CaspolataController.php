@@ -7,14 +7,26 @@ use Illuminate\Support\Facades\Redirect;
 
 class CaspolataController extends Controller
 {
-    public function index(){
-
+    // CaspolataController.php (o EventoController.php)
+    public function index()
+    {
         session_start();
+    
         $dl = new DataLayer();
         $eventi = $dl->listCaspolate();
-
-        return view('eventi.caspolata.caspolata')->with('caspolata_list', $eventi);
+    
+        $mie_iscrizioni = collect();
+        if (isset($_SESSION['loggedID'])) {
+            $mie_iscrizioni = collect($dl->getEventiIscrittiUtente($_SESSION['loggedID']))
+                                ->map(fn($id) => (int) $id);
+        }
+    
+        return view('eventi.caspolata.caspolata', [
+            'caspolata_list' => $eventi,
+            'mie_iscrizioni' => $mie_iscrizioni
+        ]);
     }
+    
 
     // Form di creazione evento
     public function create()
