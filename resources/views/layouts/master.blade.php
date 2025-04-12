@@ -45,7 +45,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ route('direttivo') }}">Direttivo</a></li>
-                            <li><a class="dropdown-item" href="{{ route('storia') }}">Storia</a></li>
+                            
                         </ul>
                     </li>
                     <li class="nav-item dropdown btn">
@@ -153,21 +153,28 @@
         @yield('body')
     </div>
 
-    <footer class="bg-body-secondary text-center">
+    <footer class="bg-body-secondary text-center py-4">
         <div class="container">
-            <div class="row">
-                <div class="col">
-                    <p>Unione Sportiva Corteno Golgi</p>
+            <div class="row text-start text-md-center">
+                <div class="col-md-6 text-md-start">
+                    <p class="fw-bold mb-1">U.S. CORTENO GOLGI</p>
+                    <p class="mb-0">Piazza Roma n°2</p>
+                    <p class="mb-0">25040 Corteno Golgi (Bs)</p>
                 </div>
-                <div class="col">
-                    <a href="https://www.instagram.com/u.s._cortenogolgi/" target="_blank" class="social-icon"><i
-                            class="bi bi-instagram"></i></a>
-                    <a href="https://www.instagram.com/u.s._cortenogolgi/" target="_blank" class="social-icon"><i
-                            class="bi bi-facebook"></i></a>
+                <div class="col-md-6 text-md-end mt-3 mt-md-0">
+                    <a href="https://www.instagram.com/u.s._cortenogolgi/" target="_blank" class="social-icon me-2">
+                        <i class="bi bi-instagram fs-4"></i>
+                    </a>
+
+                    <a href="https://www.facebook.com/u.s._cortenogolgi/" target="_blank" class="social-icon">
+                        <i class="bi bi-facebook fs-4"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </footer>
+
+
 </body>
 
 </html>

@@ -12,11 +12,11 @@ class frontController extends Controller
         return view('index');
     }
 
-    public function getStoria() {
+    /* public function getStoria() {
 
         session_start();
         return view('storia');
-    }
+    } */
 
     public function getDirettivo() {
 

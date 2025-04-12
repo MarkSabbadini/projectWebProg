@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'EVENTO RADUNO')
+@section('title', 'RADUNO SCIALPINISTICO')
 
 @section('active_home', 'active')
 
