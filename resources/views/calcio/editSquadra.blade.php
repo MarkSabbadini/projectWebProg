@@ -14,10 +14,10 @@
     <form method="POST" action="{{ route('squadra.update', $squadra->id) }}">
         @csrf
 
-        {{-- Hidden: nome originale per confronto in AJAX --}}
+       
         <input type="hidden" id="nomeOriginale" value="{{ $squadra->nome }}">
 
-        {{-- Nome squadra con controllo duplicato --}}
+        
         <div class="mb-4">
             <label for="nomeSquadraInput" class="form-label">Nome della squadra</label>
             <input type="text" class="form-control" name="nome_squadra" id="nomeSquadraInput" value="{{ $squadra->nome }}" required>
@@ -28,7 +28,7 @@
 
         <hr>
 
-        {{-- Calciatori esistenti --}}
+        
         <h5 class="mb-3">Calciatori</h5>
         <div id="calciatori-container">
             @foreach($squadra->calciatori as $i => $c)
@@ -58,9 +58,9 @@
     </form>
 </div>
 
-{{-- SCRIPT --}}
+
 <script>
-    // Controllo AJAX nome squadra (esclude il nome originale)
+    // Controllo AJAX che non esista già una squadra con stesso nome, va bene se lascio stesso nome
     $('#nomeSquadraInput').on('change', function () {
         const nomeInput = $(this);
         const nomeOriginale = $('#nomeOriginale').val();
@@ -95,7 +95,7 @@
         });
     });
 
-    // Controllo calciatore già assegnato ad altra squadra
+    // Controllo che un calciatore non sia già assegnato ad altra squadra, in caso metto un warning ma non blocco!
     $(document).on('change', '.cognome-calciatore', function () {
         const cognomeInput = $(this);
         const row = cognomeInput.closest('.calciatore-row');
@@ -127,7 +127,8 @@
         });
     });
 
-    // Aggiungi nuovo calciatore dinamicamente
+    // Aggiungo un nuovo calciatore in maniera dinamica
+
     let index = {{ count($squadra->calciatori) }};
     $('#aggiungi-calciatore').on('click', function () {
         const container = $('#calciatori-container');

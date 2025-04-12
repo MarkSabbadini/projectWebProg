@@ -14,7 +14,6 @@
     <form method="POST" action="{{ route('squadra.store') }}">
         @csrf
 
-        {{-- Nome squadra con controllo AJAX --}}
         <div class="mb-4">
             <label for="nomeSquadraInput" class="form-label">Nome della squadra</label>
             <input type="text" class="form-control" name="nome_squadra" id="nomeSquadraInput" required>
@@ -25,7 +24,6 @@
 
         <hr>
 
-        {{-- Sezione calciatori --}}
         <h5 class="mb-3">Calciatori</h5>
         <div id="calciatori-container">
             <div class="row mb-3 calciatore-row" data-index="0">
@@ -55,7 +53,7 @@
 
 {{-- SCRIPT --}}
 <script>
-    // Controllo nome squadra
+    // Controllo univocità del nome squadra
     $('#nomeSquadraInput').on('change', function () {
         const nomeInput = $(this);
         const feedback = $('#nomeSquadraFeedback');
@@ -83,7 +81,7 @@
         });
     });
 
-    // Controllo calciatore in altra squadra
+    // Controllo che il calciatore non sia in un'altra squadra
     $(document).on('change', '.cognome-calciatore', function () {
         const cognomeInput = $(this);
         const row = cognomeInput.closest('.calciatore-row');
@@ -115,7 +113,7 @@
         });
     });
 
-    // Aggiungi nuovo calciatore dinamicamente
+    // Aggiungo un nuovo calciatore dinamicamente
     let index = 1;
     $('#aggiungi-calciatore').on('click', function () {
         const container = $('#calciatori-container');

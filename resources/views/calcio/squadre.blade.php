@@ -21,7 +21,7 @@
         @forelse ($squadre as $squadra)
             <div class="col-md-6 col-lg-4 d-flex">
                 <div class="card mb-4 shadow-sm w-100">
-                    {{-- Immagine della squadra (personalizzabile) --}}
+                    
                     <img src="{{ url('/img/Calcio/Open7.jpg') }}" class="card-img-top" alt="{{ $squadra->nome }}">
 
                     <div class="card-body d-flex flex-column">

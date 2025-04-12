@@ -20,10 +20,10 @@ class authCustom
 
         if(!isset($_SESSION['logged'])) { //
 
-            return response()->view('errors.404',['message' => 'PAGINA RISERVATA AGLI UTENTI REGISTRATI!']);
+            return response()->view('errors.404',['message' => 'PAGINA RISERVATA!']);
         }
 
 
-        return $next($request); // Va avanti 
+        return $next($request); 
     }
 }
