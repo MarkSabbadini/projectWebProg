@@ -182,5 +182,78 @@ class DataLayer
         return Evento::whereDate('data', $data)->exists();
     }
 
+    public function addSquadraConCalciatori($nomeSquadra, $calciatori)
+    {
+        // Crea la squadra
+        $squadra = new Squadra();
+        $squadra->nome = $nomeSquadra;
+        $squadra->save();
+
+        // Inserisce i calciatori
+        foreach ($calciatori as $c) {
+            $calciatore = new Calciatore();
+            $calciatore->nome_squadra = $nomeSquadra;
+            $calciatore->nome = $c['nome'];
+            $calciatore->cognome = $c['cognome'];
+            $calciatore->numero = $c['numero'];
+            $calciatore->ruolo = $c['ruolo'];
+            $calciatore->save();
+        }
+    }
+
+    public function findSquadraById($id)
+    {
+        return Squadra::with('calciatori')->find($id);
+    }
+
+    public function squadraEsiste($nome)
+    {
+        return Squadra::where('nome', $nome)->exists();
+    }
+
+    public function calciatoreEsisteInAltraSquadra($nome, $cognome, $nomeSquadra)
+    {
+        return Calciatore::where('nome', $nome)
+            ->where('cognome', $cognome)
+            ->where('nome_squadra', '!=', $nomeSquadra)
+            ->exists();
+    }
+
+
+
+    public function updateSquadra($id, $nome, $calciatori)
+    {
+        $squadra = Squadra::find($id);
+        if (!$squadra)
+            return;
+
+        $squadra->nome = $nome;
+        $squadra->save();
+
+        // Cancella i vecchi calciatori
+        Calciatore::where('nome_squadra', $squadra->getOriginal('nome'))->delete();
+
+        // Inserisci i nuovi
+        foreach ($calciatori as $c) {
+            Calciatore::create([
+                'nome_squadra' => $squadra->nome,
+                'nome' => $c['nome'],
+                'cognome' => $c['cognome'],
+                'numero' => $c['numero'],
+                'ruolo' => $c['ruolo']
+            ]);
+        }
+    }
+
+    public function deleteSquadra($id)
+    {
+        $squadra = Squadra::find($id);
+        if ($squadra) {
+            Calciatore::where('nome_squadra', $squadra->nome)->delete();
+            $squadra->delete();
+        }
+    }
+
+
 
 }

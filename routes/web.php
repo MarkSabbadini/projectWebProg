@@ -117,7 +117,18 @@ Route::group(['middleware' => ['authCustom', 'isAdmin']], function () {
     Route::put('/evento/{id}', [EventoController::class, 'updateEvento'])->name('evento.update');
     Route::post('/evento', [EventoController::class, 'store'])->name('evento.store');
 
+    Route::get('/calcio/creaSquadra', [SquadraController::class, 'create'])->name('squadra.create');
+    Route::post('/calcio/salvaSquadra', [SquadraController::class, 'store'])->name('squadra.store');
+
+    Route::get('/calcio/squadra/{id}/edit', [SquadraController::class, 'edit'])->name('squadra.edit');
+    Route::post('/calcio/squadra/{id}/update', [SquadraController::class, 'update'])->name('squadra.update');
+    Route::delete('/calcio/squadra/{id}/delete', [SquadraController::class, 'destroy'])->name('squadra.destroy');
+
     Route::post('/ajax/check-event-date', [EventoController::class, 'ajaxCheckEventDate']);
+    Route::post('/ajax/check-squadra-nome', [SquadraController::class, 'ajaxCheckSquadraNome']);
+    Route::post('/ajax/check-calciatore', [SquadraController::class, 'ajaxCheckCalciatore']);
+
+
 
     
 
