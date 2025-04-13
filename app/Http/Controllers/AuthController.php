@@ -51,7 +51,7 @@ class AuthController extends Controller
         session_start();
     
         session_destroy();
-        return Redirect::to(route('home'));
+        return Redirect::to(route('home'))->with('status', 'Logout effettuato con successo!');
     }
 
     public function ajaxCheckForEmail(Request $request)

@@ -55,8 +55,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ route('squadre') }}">Le nostre squadre</a></li>
-                            <li><a class="dropdown-item" href="{{ route('risultati') }}">Risultati e classifiche</a>
-                            </li>
+                            
                             <li><a class="dropdown-item" href="{{ route('torneo') }}">Torneo estivo</a></li>
                         </ul>
                     </li>
