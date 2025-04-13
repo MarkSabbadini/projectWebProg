@@ -154,6 +154,11 @@
 
     {{-- SE GUEST --}}
     @else
+
+    <div class="alert alert-info text-center" role="alert">
+        Accedi o registrati per iscriverti ad un evento!
+    </div>
+
         <h3>Eventi Raduno</h3>
         @foreach($raduno_list as $evento)
             <div class="row mb-4 p-3 border rounded">
