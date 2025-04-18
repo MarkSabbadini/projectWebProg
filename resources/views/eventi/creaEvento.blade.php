@@ -37,7 +37,7 @@
                 <input id="inputNome" name="nome" class="form-control" type="text" placeholder="Nome..." required>
             </div>
             <div class="col-auto">
-                <label for="yearSelect" class="col-form-label">Anno</label>
+                <label for="yearSelect" class="col-form-label">Data</label>
             </div>
             <div class="col-auto">
                 <input type="date" class="form-control" id="dataEvento" name="data" required>
