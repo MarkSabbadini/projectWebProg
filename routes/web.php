@@ -124,7 +124,8 @@ Route::group(['middleware' => ['authCustom', 'isAdmin']], function () {
     Route::get('/evento/recensioni', [RecensioneController::class, 'indexTuttiEventiPassati'])->name('evento.recensioni.tutti');
     Route::get('/evento/{id}/recensioni', [RecensioneController::class, 'indexPerEvento'])->name('evento.recensioni.index');
     Route::get('/evento/{id}/recensioni/dettaglio', [RecensioneController::class, 'dettaglioEvento'])->name('evento.recensioni.dettaglio');
-    
+    Route::get('/eventi/{evento}/export-csv', [EventoController::class, 'exportCSV'])->name('eventi.exportCSV');
+
 
 
     Route::get('/calcio/creaSquadra', [SquadraController::class, 'create'])->name('squadra.create');

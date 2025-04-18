@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Evento;
 use App\Models\DataLayer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Redirect;
 
 
@@ -114,6 +115,38 @@ class EventoController extends Controller
 
         return response()->json($response);
     }
+
+    public function exportCSV($id)
+    {
+        $evento = Evento::with('iscritti')->findOrFail($id);
+
+        $headers = [
+            'Content-Type' => 'text/csv',
+            'Content-Disposition' => 'attachment; filename="iscritti_evento_' . $evento->id . '.csv"',
+        ];
+
+        $columns = ['Nome', 'Cognome', 'Email', 'Comune', 'Ricevuta'];
+
+        $callback = function () use ($evento, $columns) {
+            $file = fopen('php://output', 'w');
+            fputcsv($file, $columns);
+
+            foreach ($evento->iscritti as $utente) {
+                fputcsv($file, [
+                    $utente->nome,
+                    $utente->cognome,
+                    $utente->email,
+                    $utente->comune,
+                    $utente->pivot->ricevuta ? asset('storage/' . $utente->pivot->ricevuta) : 'Nessuna ricevuta'
+                ]);
+            }
+
+            fclose($file);
+        };
+
+        return Response::stream($callback, 200, $headers);
+    }
+
 
 
 
