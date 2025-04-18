@@ -36,7 +36,7 @@
                     @endforeach
                     @if($evento->iscritti->count())
                             <div class="mb-3">
-                                <a href="{{ route('eventi.exportCSV', $evento->id) }}" class="btn btn-primary">
+                                <a href="{{ route('eventi.exportCSV', $evento->id) }}" class="btn btn-success">
                                     Scarica elenco .CSV 
                                 </a>
                             </div>
