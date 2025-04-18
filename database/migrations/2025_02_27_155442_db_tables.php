@@ -42,6 +42,18 @@ return new class extends Migration {
             $table->timestamps();
         });
 
+        Schema::create('recensioni', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('id_evento');
+            $table->unsignedBigInteger('id_utente');
+            $table->text('commento');
+            $table->unsignedTinyInteger('voto'); 
+            $table->timestamps();
+    
+            $table->foreign('id_evento')->references('id')->on('evento')->onDelete('cascade');
+            $table->foreign('id_utente')->references('id')->on('utente')->onDelete('cascade');
+        });
+
         Schema::create('squadra', function (Blueprint $table) {
             $table->id();
             $table->string('nome');

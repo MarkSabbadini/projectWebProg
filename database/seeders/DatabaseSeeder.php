@@ -62,28 +62,64 @@ class DatabaseSeeder extends Seeder
     private function populateDB()
     {
         $utenti = Utente::all();
+        $registeredUsers = Utente::whereHas('user', function ($query) {
+            $query->where('role', 'registered_user');
+        })->take(2)->get();
 
-        // 1. Crea 5 eventi
-        Evento::factory()->count(5)->create()->each(function ($evento) use ($utenti) {
-            $randomUtenti = $utenti->random(rand(1, 4));
-            $evento->iscritti()->attach($randomUtenti->pluck('id'), [
-                'ricevuta' => 'ricevute/finta_ricevuta.pdf',
+        // Date helpers
+        $oggi = now();
+        $futureDates = collect(range(1, 4))->map(fn($i) => $oggi->copy()->addDays($i * 5));
+        $pastDates = collect(range(1, 6))->map(fn($i) => $oggi->copy()->subDays($i * 5));
+
+        // Crea 4 eventi futuri
+        foreach ($futureDates as $data) {
+            Evento::factory()->create([
+                'data' => $data,
+                'tipo' => fake()->randomElement(['raduno', 'caspolata']),
+            ]);
+        }
+
+        // Crea 3 eventi passati con i due registered_user iscritti
+        foreach ($pastDates->take(3) as $data) {
+            $evento = Evento::factory()->create([
+                'data' => $data,
+                'tipo' => fake()->randomElement(['raduno', 'caspolata']),
+            ]);
+
+            $evento->iscritti()->attach($registeredUsers->pluck('id'), [
+                'ricevuta' => 'ricevute/ricevuta_partecipato.pdf',
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
-        });
+        }
 
-        // 2. Crea 4 squadre
+        // Crea 3 eventi passati a cui nessun registered_user ha partecipato
+        foreach ($pastDates->slice(3) as $data) {
+            $evento = Evento::factory()->create([
+                'data' => $data,
+                'tipo' => fake()->randomElement(['raduno', 'caspolata']),
+            ]);
+
+            // iscrive utenti casuali, ma NON i due registered_user
+            $altriUtenti = $utenti->whereNotIn('id', $registeredUsers->pluck('id'))->random(rand(1, 4));
+            $evento->iscritti()->attach($altriUtenti->pluck('id'), [
+                'ricevuta' => 'ricevute/ricevuta_altro.pdf',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        }
+
+        // Crea 4 squadre
         $squadre = Squadra::factory()->count(4)->create();
 
-        // 3. Per ogni squadra crea da 5 a 11 calciatori
+        // Per ogni squadra crea da 5 a 11 calciatori
         $squadre->each(function ($squadra) {
             Calciatore::factory()
                 ->count(rand(5, 11))
                 ->create(['nome_squadra' => $squadra->nome]);
         });
 
-        // 4. Crea 3 partite con squadre casuali
+        // Crea 3 partite con squadre casuali
         $squadreIds = $squadre->pluck('id')->toArray();
 
         for ($i = 0; $i < 3; $i++) {
@@ -111,4 +147,5 @@ class DatabaseSeeder extends Seeder
             }
         }
     }
+
 }

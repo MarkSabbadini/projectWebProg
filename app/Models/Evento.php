@@ -20,4 +20,9 @@ class Evento extends Model
         ->withPivot('ricevuta')
         ->withTimestamps();
     }
+
+    public function recensioni()
+    {
+        return $this->hasMany(Recensione::class, 'id_evento');
+    }
 }

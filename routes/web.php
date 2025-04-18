@@ -10,6 +10,7 @@ use App\Http\Controllers\RadunoController;
 use App\Http\Controllers\CaspolataController;
 use App\Http\Controllers\UtenteController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\RecensioneController;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -97,6 +98,10 @@ Route::group(['middleware' => ['authCustom', 'isRegisteredUser']], function () {
     Route::post('/iscrizione/submit', [IscrizioneController::class, 'submit'])->name('iscrizione.submit');
     Route::delete('/iscrizione/{evento_id}', [IscrizioneController::class, 'destroy'])->name('iscrizione.delete');
 
+    Route::get('/recensioni/crea/{evento}', [RecensioneController::class, 'create'])->name('recensione.create');
+    Route::post('/recensioni/store', [RecensioneController::class, 'store'])->name('recensione.store');
+
+
 
 
 });
@@ -116,6 +121,11 @@ Route::group(['middleware' => ['authCustom', 'isAdmin']], function () {
     Route::get('/evento/{id}/edit', [EventoController::class, 'editEvento'])->name('evento.edit');
     Route::put('/evento/{id}', [EventoController::class, 'updateEvento'])->name('evento.update');
     Route::post('/evento', [EventoController::class, 'store'])->name('evento.store');
+    Route::get('/evento/recensioni', [RecensioneController::class, 'indexTuttiEventiPassati'])->name('evento.recensioni.tutti');
+    Route::get('/evento/{id}/recensioni', [RecensioneController::class, 'indexPerEvento'])->name('evento.recensioni.index');
+    Route::get('/evento/{id}/recensioni/dettaglio', [RecensioneController::class, 'dettaglioEvento'])->name('evento.recensioni.dettaglio');
+    
+
 
     Route::get('/calcio/creaSquadra', [SquadraController::class, 'create'])->name('squadra.create');
     Route::post('/calcio/salvaSquadra', [SquadraController::class, 'store'])->name('squadra.store');

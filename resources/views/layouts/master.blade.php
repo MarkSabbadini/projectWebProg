@@ -71,6 +71,8 @@
                             @if(isset($_SESSION['logged']) && $_SESSION['role'] === 'admin')
                                 <li><a class="dropdown-item" href="{{ route('evento.create') }}">Inserisci un nuovo
                                         evento</a></li>
+                                <li><a class="dropdown-item" href="{{ route('evento.recensioni.tutti') }}">Recensioni eventi</a></li>
+
                             @endif
                         </ul>
                     </li>
