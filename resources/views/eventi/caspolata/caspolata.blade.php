@@ -174,31 +174,11 @@
                         @endforeach
                     </div>
 
-                    <h4 class="mt-5">Eventi passati a cui non hai partecipato</h4>
-                    @foreach($eventi_passati_non_iscritti as $evento)
-                        <div class="row mb-4 p-3 border rounded">
-                            <div class="col-md-8">
-                                <h5>{{ $evento->nome }}</h5>
-                                <p><strong>Data:</strong> {{ Carbon::parse($evento->data)->format('d-m-Y') }}</p>
-                                <p>{{ $evento->descrizione }}</p>
-                                <button class="btn btn-secondary" disabled>Iscrizione chiusa</button>
-                            </div>
-                            <div class="col-md-4 text-end">
-                                @if($evento->locandina_path)
-                                    @if(Str::endsWith($evento->locandina_path, ['.jpg', '.jpeg', '.png']))
-                                        <img src="{{ asset('storage/' . $evento->locandina_path) }}" class="img-fluid rounded shadow-sm">
-                                    @elseif(Str::endsWith($evento->locandina_path, ['.pdf']))
-                                        <iframe src="{{ asset('storage/' . $evento->locandina_path) }}" width="100%" height="250px"
-                                            style="border: none;"></iframe>
-                                    @endif
-                                @endif
-                            </div>
-                        </div>
-                    @endforeach
+                    
                 </div>
             </div>
 
-            {{-- SE GUEST --}}
+           
         @else
 
             <div class="alert alert-info text-center" role="alert">
