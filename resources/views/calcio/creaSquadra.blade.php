@@ -60,7 +60,7 @@
         </form>
     </div>
 
-    {{-- SCRIPT --}}
+    
     <script>
         // Controllo univocità del nome squadra
         $('#nomeSquadraInput').on('change', function () {

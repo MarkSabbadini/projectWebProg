@@ -28,7 +28,7 @@
     <form method="POST" action="{{ route('evento.store') }}" enctype="multipart/form-data">
         @csrf
 
-        <!-- Prima riga con Nome evento e Anno -->
+       
         <div class="row g-2 align-items-center mb-3">
             <div class="col-auto">
                 <label for="inputNome" class="col-form-label">Nome evento</label>
@@ -45,7 +45,6 @@
 
         </div>
 
-        <!-- Seconda riga per la descrizione -->
         <div class="row g-2 mb-3">
             <div class="col-12">
                 <label for="inputDescrizione" class="form-label">Inserisci una breve descrizione dell'evento</label>
@@ -54,7 +53,6 @@
             </div>
         </div>
 
-        <!-- Tipologia evento -->
         <fieldset class="form-group">
             <div class="row">
                 <legend class="col-form-label col-sm-2 pt-0">Tipologia evento</legend>
@@ -75,7 +73,6 @@
             </div>
         </fieldset>
 
-        <!-- Upload locandina -->
         <div class="mb-3">
             <label for="formFile" class="form-label">Carica la locandina dell'evento</label>
             <input class="form-control" type="file" id="locandina_path" name="locandina_path">
